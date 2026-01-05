@@ -16,7 +16,7 @@ import { IntegrationsSection } from './components/IntegrationsSection';
 import { FinalCTA } from './components/FinalCTA';
 import { Footer } from './components/Footer';
 import { ArticlesHub } from './pages/ArticlesHub';
-import { ArticleDetail } from './pages/ArticleDetail';
+import ArticleDetail from './pages/ArticleDetail';
 import { Toaster } from 'sonner';
 import { motion, AnimatePresence } from 'motion/react';
 
