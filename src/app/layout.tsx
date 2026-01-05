@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     title: SITE_CONFIG.title,
     description: SITE_CONFIG.description,
     siteName: SITE_CONFIG.title,
-    images: [`${SITE_CONFIG.url}/images/og.jpg`],
+    images: [`${SITE_CONFIG.url}/favicon/android-chrome-192-192.png`],
     type: "website",
     locale: "en_US",
   },
