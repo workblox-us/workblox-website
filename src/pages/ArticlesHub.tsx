@@ -26,7 +26,7 @@ import { useThemeColors } from '../hooks/useThemeColors';
 import { useNavigation } from '../contexts/NavigationContext';
 import { articlesData, Article } from '../data/articlesData';
 
-export function ArticlesHub() {
+function ArticlesHub() {
   const colors = useThemeColors();
   const { navigateTo } = useNavigation();
   const [searchQuery, setSearchQuery] = useState('');
@@ -38,11 +38,11 @@ export function ArticlesHub() {
 
   // Filter articles
   const filteredArticles = articlesData.filter(article => {
-    const matchesSearch = 
+    const matchesSearch =
       article.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
       article.excerpt.toLowerCase().includes(searchQuery.toLowerCase()) ||
       article.tags.some(tag => tag.toLowerCase().includes(searchQuery.toLowerCase()));
-    
+
     const matchesType = selectedType === 'All' || article.type === selectedType;
     const matchesCategory = selectedCategory === 'All' || article.category === selectedCategory;
 
@@ -92,7 +92,7 @@ export function ArticlesHub() {
         sx={{
           position: 'fixed',
           inset: 0,
-          background: colors.isDark 
+          background: colors.isDark
             ? 'radial-gradient(circle at 50% 0%, rgba(99, 102, 241, 0.1), transparent 50%)'
             : 'radial-gradient(circle at 50% 0%, rgba(99, 102, 241, 0.05), transparent 50%)',
           pointerEvents: 'none',
@@ -128,14 +128,14 @@ export function ArticlesHub() {
             </Typography>
           </Box>
 
-          <Typography 
-            variant="h1" 
-            sx={{ 
-              fontSize: { xs: '2.5rem', md: '3.5rem' }, 
-              color: colors.text.primary, 
+          <Typography
+            variant="h1"
+            sx={{
+              fontSize: { xs: '2.5rem', md: '3.5rem' },
+              color: colors.text.primary,
               mb: 2,
               fontWeight: 700,
-              background: colors.isDark 
+              background: colors.isDark
                 ? 'linear-gradient(135deg, #ffffff, #a5b4fc)'
                 : 'linear-gradient(135deg, #000000, #6366f1)',
               WebkitBackgroundClip: 'text',
@@ -145,11 +145,11 @@ export function ArticlesHub() {
             Articles & Updates
           </Typography>
 
-          <Typography 
-            variant="h6" 
-            sx={{ 
-              color: colors.text.secondary, 
-              maxWidth: '48rem', 
+          <Typography
+            variant="h6"
+            sx={{
+              color: colors.text.secondary,
+              maxWidth: '48rem',
               mx: 'auto',
               lineHeight: 1.7,
             }}
@@ -207,14 +207,14 @@ export function ArticlesHub() {
                   label={type}
                   onClick={() => setSelectedType(type)}
                   sx={{
-                    bgcolor: selectedType === type 
-                      ? 'rgba(99, 102, 241, 0.15)' 
+                    bgcolor: selectedType === type
+                      ? 'rgba(99, 102, 241, 0.15)'
                       : colors.isDark ? 'rgba(255, 255, 255, 0.05)' : 'rgba(0, 0, 0, 0.05)',
-                    color: selectedType === type 
-                      ? '#a5b4fc' 
+                    color: selectedType === type
+                      ? '#a5b4fc'
                       : colors.text.secondary,
-                    border: selectedType === type 
-                      ? '1px solid rgba(99, 102, 241, 0.3)' 
+                    border: selectedType === type
+                      ? '1px solid rgba(99, 102, 241, 0.3)'
                       : colors.isDark ? '1px solid rgba(255, 255, 255, 0.1)' : '1px solid rgba(0, 0, 0, 0.1)',
                     '&:hover': {
                       bgcolor: 'rgba(99, 102, 241, 0.1)',
@@ -235,14 +235,14 @@ export function ArticlesHub() {
                 onClick={() => setSelectedCategory(category)}
                 size="small"
                 sx={{
-                  bgcolor: selectedCategory === category 
-                    ? 'rgba(139, 92, 246, 0.15)' 
+                  bgcolor: selectedCategory === category
+                    ? 'rgba(139, 92, 246, 0.15)'
                     : colors.isDark ? 'rgba(255, 255, 255, 0.03)' : 'rgba(0, 0, 0, 0.03)',
-                  color: selectedCategory === category 
-                    ? '#a78bfa' 
+                  color: selectedCategory === category
+                    ? '#a78bfa'
                     : colors.text.secondary,
-                  border: selectedCategory === category 
-                    ? '1px solid rgba(139, 92, 246, 0.3)' 
+                  border: selectedCategory === category
+                    ? '1px solid rgba(139, 92, 246, 0.3)'
                     : colors.isDark ? '1px solid rgba(255, 255, 255, 0.05)' : '1px solid rgba(0, 0, 0, 0.05)',
                   '&:hover': {
                     bgcolor: 'rgba(139, 92, 246, 0.1)',
@@ -350,9 +350,9 @@ export function ArticlesHub() {
                     </Box>
 
                     {/* Title */}
-                    <Typography 
-                      sx={{ 
-                        color: colors.text.primary, 
+                    <Typography
+                      sx={{
+                        color: colors.text.primary,
                         fontSize: '1.25rem',
                         fontWeight: 600,
                         mb: 2,
@@ -363,9 +363,9 @@ export function ArticlesHub() {
                     </Typography>
 
                     {/* Excerpt */}
-                    <Typography 
-                      sx={{ 
-                        color: colors.text.secondary, 
+                    <Typography
+                      sx={{
+                        color: colors.text.secondary,
                         fontSize: '0.9375rem',
                         mb: 3,
                         lineHeight: 1.6,
@@ -459,3 +459,4 @@ export function ArticlesHub() {
     </Box>
   );
 }
+export default ArticlesHub;
