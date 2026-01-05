@@ -2,8 +2,10 @@ import { motion } from 'motion/react';
 import { GitHub, Twitter, LinkedIn, YouTube } from '@mui/icons-material';
 import { Box, Container, Typography, IconButton } from '@mui/material';
 import { WorkbloxLogo } from './WorkbloxLogo';
+import { useThemeColors } from '@/hooks/useThemeColors';
 
 export function Footer() {
+  const colors = useThemeColors();
   const footerLinks = {
     Product: ['Features', 'Integrations', 'Pricing', 'Changelog', 'Roadmap'],
     Company: ['About', 'Blog', 'Careers', 'Press', 'Contact'],
@@ -35,13 +37,12 @@ export function Footer() {
             <Box sx={{ mb: 2 }}>
               <Box
                 component="img"
-                src="/images/workblox-logo.png"
+                src={colors.isDark ? "/images/workblox-logo.png" : "/images/workblox-logo-light.png"}
                 alt="Workblox"
                 sx={{
-                  height: 28,        // adjust
+                  height: 28, // responsive
                   width: "auto",
                   display: "block",
-                  mb: 1,
                 }}
               />
             </Box>

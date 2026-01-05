@@ -8,8 +8,10 @@ import { useState } from 'react';
 import { SignInModal } from './SignInModal';
 import { BetaModal } from './BetaModal';
 import { Dashboard } from './Dashboard';
+import { useThemeColors } from '@/hooks/useThemeColors';
 
 export function Navigation() {
+  const colors = useThemeColors();
   const { mode, toggleTheme } = useThemeMode();
   const theme = useTheme();
   const { navigateTo, currentPage } = useNavigation();
@@ -95,13 +97,12 @@ export function Navigation() {
           >
             <Box
               component="img"
-              src="/images/workblox-logo.png"
+              src={colors.isDark ? "/images/workblox-logo.png" : "/images/workblox-logo-light.png"}
               alt="Workblox"
               sx={{
-                height: 28,        // adjust
+                height: 28, // responsive
                 width: "auto",
                 display: "block",
-                mb: 1,
               }}
             />
           </Box>
