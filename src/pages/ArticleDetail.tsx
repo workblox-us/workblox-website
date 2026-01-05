@@ -34,7 +34,7 @@ interface ArticleDetailProps {
   articleId: string;
 }
 
-export function ArticleDetail({ articleId }: ArticleDetailProps) {
+function ArticleDetail({ articleId }: ArticleDetailProps) {
   const colors = useThemeColors();
   const { goBack, navigateTo } = useNavigation();
   const [liked, setLiked] = useState(false);
@@ -700,3 +700,5 @@ export function ArticleDetail({ articleId }: ArticleDetailProps) {
     </Box>
   );
 }
+
+export default ArticleDetail;
