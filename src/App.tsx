@@ -15,8 +15,8 @@ import { UseCasesSection } from './components/UseCasesSection';
 import { IntegrationsSection } from './components/IntegrationsSection';
 import { FinalCTA } from './components/FinalCTA';
 import { Footer } from './components/Footer';
-import ArticlesHub from './pages/ArticlesHub';
-import ArticleDetail from './pages/ArticleDetail';
+import ArticlesHub from './components/ArticlesHub';
+import ArticleDetail from './components/ArticleDetail';
 import { Toaster } from 'sonner';
 import { motion, AnimatePresence } from 'motion/react';
 
