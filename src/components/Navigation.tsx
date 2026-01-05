@@ -40,7 +40,7 @@ export function Navigation() {
           const offset = 80; // Account for fixed nav height
           const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
           const offsetPosition = elementPosition - offset;
-          
+
           window.scrollTo({
             top: offsetPosition,
             behavior: 'smooth'
@@ -54,7 +54,7 @@ export function Navigation() {
         const offset = 80;
         const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
         const offsetPosition = elementPosition - offset;
-        
+
         window.scrollTo({
           top: offsetPosition,
           behavior: 'smooth'
@@ -93,7 +93,17 @@ export function Navigation() {
             onClick={() => navigateTo('home')}
             sx={{ display: 'flex', alignItems: 'center', gap: 1, cursor: 'pointer' }}
           >
-            <WorkbloxLogo />
+            <Box
+              component="img"
+              src="/images/logo.png"
+              alt="Workblox"
+              sx={{
+                height: 28,        // adjust
+                width: "auto",
+                display: "block",
+                mb: 1,
+              }}
+            />
           </Box>
 
           {/* Desktop Navigation */}
@@ -104,15 +114,15 @@ export function Navigation() {
             transition={{ duration: 0.5, delay: 0.1 }}
             sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center', gap: 4 }}
           >
-            <Box 
+            <Box
               component="button"
               onClick={() => handleSectionClick('features')}
-              sx={{ 
+              sx={{
                 background: 'none',
                 border: 'none',
-                color: theme.palette.text.secondary, 
-                textDecoration: 'none', 
-                transition: 'color 0.2s', 
+                color: theme.palette.text.secondary,
+                textDecoration: 'none',
+                transition: 'color 0.2s',
                 cursor: 'pointer',
                 fontSize: '1rem',
                 '&:hover': { color: theme.palette.text.primary },
@@ -120,15 +130,15 @@ export function Navigation() {
             >
               Features
             </Box>
-            <Box 
+            <Box
               component="button"
               onClick={() => handleSectionClick('solutions')}
-              sx={{ 
+              sx={{
                 background: 'none',
                 border: 'none',
-                color: theme.palette.text.secondary, 
-                textDecoration: 'none', 
-                transition: 'color 0.2s', 
+                color: theme.palette.text.secondary,
+                textDecoration: 'none',
+                transition: 'color 0.2s',
                 cursor: 'pointer',
                 fontSize: '1rem',
                 '&:hover': { color: theme.palette.text.primary },
@@ -136,17 +146,17 @@ export function Navigation() {
             >
               Solutions
             </Box>
-            <Box 
+            <Box
               component="button"
               onClick={() => navigateTo('articles')}
-              sx={{ 
+              sx={{
                 background: 'none',
                 border: 'none',
-                color: currentPage === 'articles' || currentPage === 'article' 
-                  ? theme.palette.text.primary 
-                  : theme.palette.text.secondary, 
-                textDecoration: 'none', 
-                transition: 'color 0.2s', 
+                color: currentPage === 'articles' || currentPage === 'article'
+                  ? theme.palette.text.primary
+                  : theme.palette.text.secondary,
+                textDecoration: 'none',
+                transition: 'color 0.2s',
                 cursor: 'pointer',
                 fontSize: '1rem',
                 fontWeight: currentPage === 'articles' || currentPage === 'article' ? 600 : 400,
@@ -155,15 +165,15 @@ export function Navigation() {
             >
               Articles
             </Box>
-            <Box 
+            <Box
               component="button"
               onClick={() => handleSectionClick('integrations')}
-              sx={{ 
+              sx={{
                 background: 'none',
                 border: 'none',
-                color: theme.palette.text.secondary, 
-                textDecoration: 'none', 
-                transition: 'color 0.2s', 
+                color: theme.palette.text.secondary,
+                textDecoration: 'none',
+                transition: 'color 0.2s',
                 cursor: 'pointer',
                 fontSize: '1rem',
                 '&:hover': { color: theme.palette.text.primary },
@@ -171,15 +181,15 @@ export function Navigation() {
             >
               Integrations
             </Box>
-            <Box 
+            <Box
               component="button"
               onClick={() => handleSectionClick('security')}
-              sx={{ 
+              sx={{
                 background: 'none',
                 border: 'none',
-                color: theme.palette.text.secondary, 
-                textDecoration: 'none', 
-                transition: 'color 0.2s', 
+                color: theme.palette.text.secondary,
+                textDecoration: 'none',
+                transition: 'color 0.2s',
                 cursor: 'pointer',
                 fontSize: '1rem',
                 '&:hover': { color: theme.palette.text.primary },
@@ -209,9 +219,9 @@ export function Navigation() {
             >
               {mode === 'dark' ? <LightMode /> : <DarkMode />}
             </IconButton>
-            <Button 
-              sx={{ 
-                color: theme.palette.text.secondary, 
+            <Button
+              sx={{
+                color: theme.palette.text.secondary,
                 '&:hover': { color: theme.palette.text.primary },
                 display: { xs: 'none', sm: 'inline-flex' }
               }}

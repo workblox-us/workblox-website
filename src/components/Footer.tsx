@@ -33,7 +33,17 @@ export function Footer() {
           {/* Brand */}
           <Box sx={{ gridColumn: { xs: 'span 2', md: 'span 2' } }}>
             <Box sx={{ mb: 2 }}>
-              <WorkbloxLogo />
+              <Box
+                component="img"
+                src="/images/logo.png"
+                alt="Workblox"
+                sx={{
+                  height: 28,        // adjust
+                  width: "auto",
+                  display: "block",
+                  mb: 1,
+                }}
+              />
             </Box>
             <Typography variant="body2" sx={{ color: '#9ca3af', mb: 3, maxWidth: '20rem' }}>
               The intelligent workspace that unifies planning, communication, and execution with AI.
