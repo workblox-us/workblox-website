@@ -1,4 +1,4 @@
-import { Container } from "@mui/material";
+import { Box } from "@mui/material";
 import GlobalStyles from "@mui/material/GlobalStyles";
 import type { Metadata } from "next";
 import * as React from "react";
@@ -45,7 +45,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <GlobalStyles styles={GLOBAL_STYLES} />
         <Providers>
-          <Container sx={{ pl: 0, pr: 0 }}>{children}</Container>
+          <Box sx={{ width: "100%", minHeight: "100vh" }}>{children}</Box>
         </Providers>
       </body>
     </html>
