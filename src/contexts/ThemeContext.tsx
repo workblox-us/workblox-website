@@ -1,13 +1,12 @@
-"use client";
-
-import React, {
+'use client';
+import {
   createContext,
   useContext,
   ReactNode,
   useMemo,
   useState,
   useEffect,
-} from "react";
+} from 'react';
 import {
   createTheme,
   ThemeProvider as MuiThemeProvider,
@@ -30,18 +29,40 @@ export function useThemeMode() {
 }
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  const [mode, setMode] = useState<PaletteMode>("dark");
+  const [mode, setMode] = useState<PaletteMode>('dark');
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    // Initial load from storage and system preference
+    const savedMode = localStorage.getItem('theme-mode') as PaletteMode;
+    if (savedMode) {
+      setMode(savedMode);
+      document.documentElement.classList.toggle('dark', savedMode === 'dark');
+      document.documentElement.dataset.theme = savedMode;
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      setMode('dark');
+      document.documentElement.classList.add('dark');
+      document.documentElement.dataset.theme = 'dark';
+    } else {
+      setMode('light');
+      document.documentElement.classList.remove('dark');
+      document.documentElement.dataset.theme = 'light';
+    }
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (mounted) {
+      localStorage.setItem('theme-mode', mode);
+      document.documentElement.dataset.theme = mode;
+      document.documentElement.classList.toggle('dark', mode === 'dark');
+    }
+  }, [mode, mounted]);
 
   const toggleTheme = () => {
     setMode((prevMode) => (prevMode === "light" ? "dark" : "light"));
   };
 
-  // ✅ DOM write only runs in the browser
-  useEffect(() => {
-    document.documentElement.dataset.theme = mode;
-  }, [mode]);
-
-  // ✅ useMemo only computes theme (SSR-safe)
   const theme = useMemo(() => {
     return createTheme({
       palette: {
@@ -111,6 +132,16 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
       },
     });
   }, [mode]);
+
+  // Prevent hydration mismatch by returning null or a consistent skeleton
+  // until the client-side state is synchronized with localStorage
+  if (!mounted) {
+    return (
+      <ThemeContext.Provider value={{ mode, toggleTheme }}>
+        <div style={{ visibility: 'hidden' }}>{children}</div>
+      </ThemeContext.Provider>
+    );
+  }
 
   return (
     <ThemeContext.Provider value={{ mode, toggleTheme }}>
