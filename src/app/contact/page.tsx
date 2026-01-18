@@ -7,6 +7,7 @@ import {
   Handshake,
   Newspaper,
   RocketLaunch,
+  Article,
   TrendingUp,
 } from '@mui/icons-material';
 import { Box, Container, Typography } from '@mui/material';
