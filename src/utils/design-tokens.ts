@@ -143,6 +143,7 @@ export function getThemeColors(isDark: boolean) {
       accent: isDark ? 'rgba(147, 51, 234, 0.3)' : 'rgba(147, 51, 234, 0.2)',
       input: isDark ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)',
       inputAlt: isDark ? 'rgba(255, 255, 255, 0.2)' : 'rgba(0, 0, 0, 0.2)',
+      accent: isDark ? 'rgba(181, 51, 234, 0.2)' : 'rgba(147, 51, 234, 0.15)',
     },
   };
 }
