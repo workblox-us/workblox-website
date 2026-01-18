@@ -138,6 +138,7 @@ export function getThemeColors(isDark: boolean) {
       lighter: isDark ? 'rgba(255, 255, 255, 0.05)' : 'rgba(15, 23, 42, 0.04)',
       input: isDark ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)',
       inputAlt: isDark ? 'rgba(255, 255, 255, 0.2)' : 'rgba(0, 0, 0, 0.2)',
+      accent: isDark ? 'rgba(181, 51, 234, 0.2)' : 'rgba(147, 51, 234, 0.15)',
     },
   };
 }
