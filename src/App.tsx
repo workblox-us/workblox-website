@@ -82,11 +82,5 @@ function AppContent() {
 }
 
 export default function App() {
-  return (
-    <ThemeProvider>
-      <NavigationProvider>
-        <AppContent />
-      </NavigationProvider>
-    </ThemeProvider>
-  );
+  return <AppContent />;
 }

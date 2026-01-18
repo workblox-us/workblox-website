@@ -7,9 +7,11 @@ export const tokens = {
   // Color Gradients
   gradients: {
     primary: 'linear-gradient(90deg, #9333ea 0%, #3b82f6 100%)',
-    primaryExtended: 'linear-gradient(90deg, #9333ea 0%, #3b82f6 50%, #06b6d4 100%)',
+    primaryExtended:
+      'linear-gradient(90deg, #9333ea 0%, #3b82f6 50%, #06b6d4 100%)',
     textPurple: 'linear-gradient(90deg, #c084fc 0%, #60a5fa 50%, #22d3ee 100%)',
-    textPurpleDark: 'linear-gradient(90deg, #9333ea 0%, #3b82f6 50%, #0891b2 100%)',
+    textPurpleDark:
+      'linear-gradient(90deg, #9333ea 0%, #3b82f6 50%, #0891b2 100%)',
     textPurpleAlt: 'linear-gradient(90deg, #c084fc 0%, #8b5cf6 100%)',
     textPurpleAltDark: 'linear-gradient(90deg, #9333ea 0%, #7c3aed 100%)',
     underline: 'linear-gradient(90deg, #9333ea, #3b82f6)',
@@ -27,11 +29,11 @@ export const tokens = {
 
   // Spacing (multipliers of 8px)
   spacing: {
-    xs: 0.5,  // 4px
-    sm: 1,    // 8px
-    md: 2,    // 16px
-    lg: 3,    // 24px
-    xl: 4,    // 32px
+    xs: 0.5, // 4px
+    sm: 1, // 8px
+    md: 2, // 16px
+    lg: 3, // 24px
+    xl: 4, // 32px
     '2xl': 6, // 48px
     '3xl': 8, // 64px
   },
@@ -39,16 +41,16 @@ export const tokens = {
   // Typography Scale
   typography: {
     fontSize: {
-      xs: '0.75rem',    // 12px
-      sm: '0.875rem',   // 14px
+      xs: '0.75rem', // 12px
+      sm: '0.875rem', // 14px
       base: '0.9375rem', // 15px
-      md: '1rem',       // 16px
-      lg: '1.125rem',   // 18px
-      xl: '1.25rem',    // 20px
-      '2xl': '1.5rem',  // 24px
-      '3xl': '2rem',    // 32px
-      '4xl': '2.5rem',  // 40px
-      '5xl': '3rem',    // 48px
+      md: '1rem', // 16px
+      lg: '1.125rem', // 18px
+      xl: '1.25rem', // 20px
+      '2xl': '1.5rem', // 24px
+      '3xl': '2rem', // 32px
+      '4xl': '2.5rem', // 40px
+      '5xl': '3rem', // 48px
     },
     fontWeight: {
       normal: 400,
@@ -118,9 +120,11 @@ export function getThemeColors(isDark: boolean) {
       secondary: isDark ? '#0a0a0a' : '#fafbfc',
       tertiary: isDark ? '#1a1a1a' : '#f4f6f8',
       glass: isDark ? 'rgba(255, 255, 255, 0.05)' : 'rgba(255, 255, 255, 0.9)',
-      glassHover: isDark ? 'rgba(255, 255, 255, 0.1)' : 'rgba(255, 255, 255, 1)',
-      card: isDark 
-        ? 'linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0))' 
+      glassHover: isDark
+        ? 'rgba(255, 255, 255, 0.1)'
+        : 'rgba(255, 255, 255, 1)',
+      card: isDark
+        ? 'linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0))'
         : 'linear-gradient(135deg, rgba(255, 255, 255, 1), rgba(248, 250, 252, 0.95))',
       cardSolid: isDark ? 'rgba(26, 26, 26, 0.95)' : 'rgba(255, 255, 255, 1)',
       input: isDark ? 'rgba(255, 255, 255, 0.05)' : 'rgba(255, 255, 255, 0.8)',
@@ -136,6 +140,7 @@ export function getThemeColors(isDark: boolean) {
     border: {
       light: isDark ? 'rgba(255, 255, 255, 0.1)' : 'rgba(15, 23, 42, 0.08)',
       lighter: isDark ? 'rgba(255, 255, 255, 0.05)' : 'rgba(15, 23, 42, 0.04)',
+      accent: isDark ? 'rgba(147, 51, 234, 0.3)' : 'rgba(147, 51, 234, 0.2)',
       input: isDark ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)',
       inputAlt: isDark ? 'rgba(255, 255, 255, 0.2)' : 'rgba(0, 0, 0, 0.2)',
     },
