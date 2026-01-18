@@ -1,24 +1,27 @@
 'use client';
 import { CssBaseline } from '@mui/material';
-import { ThemeProvider } from './contexts/ThemeContext';
+import { AnimatePresence, motion } from 'motion/react';
+import { Toaster } from 'sonner';
+
+import { AIAssistantSection } from './components/AIAssistantSection';
+import ArticleDetail from './components/ArticleDetail';
+import ArticlesHub from './components/ArticlesHub';
+import { ArticlesPreview } from './components/ArticlesPreview';
+import { FAQSection } from './components/FAQSection';
+import { FeaturesSection } from './components/FeaturesSection';
+import { FinalCTA } from './components/FinalCTA';
+import { Footer } from './components/Footer';
+import { Hero } from './components/Hero';
+import { IntegrationsSection } from './components/IntegrationsSection';
+import { InteractiveShowcase } from './components/InteractiveShowcase';
+import { Navigation } from './components/Navigation';
+import { SecuritySection } from './components/SecuritySection';
+import { UseCasesSection } from './components/UseCasesSection';
 import {
   NavigationProvider,
   useNavigation,
 } from './contexts/NavigationContext';
-import { Navigation } from './components/Navigation';
-import { Hero } from './components/Hero';
-import { InteractiveShowcase } from './components/InteractiveShowcase';
-import { FeaturesSection } from './components/FeaturesSection';
-import { AIAssistantSection } from './components/AIAssistantSection';
-import { ArticlesPreview } from './components/ArticlesPreview';
-import { UseCasesSection } from './components/UseCasesSection';
-import { IntegrationsSection } from './components/IntegrationsSection';
-import { FinalCTA } from './components/FinalCTA';
-import { Footer } from './components/Footer';
-import ArticlesHub from './components/ArticlesHub';
-import ArticleDetail from './components/ArticleDetail';
-import { Toaster } from 'sonner';
-import { motion, AnimatePresence } from 'motion/react';
+import { ThemeProvider } from './contexts/ThemeContext';
 
 function AppContent() {
   const { currentPage, currentArticleId } = useNavigation();
@@ -27,7 +30,6 @@ function AppContent() {
     <>
       <CssBaseline />
       <Toaster position='bottom-right' />
-      <Navigation />
 
       <AnimatePresence mode='wait'>
         {currentPage === 'home' && (
@@ -45,8 +47,9 @@ function AppContent() {
             <ArticlesPreview />
             <UseCasesSection />
             <IntegrationsSection />
+            <SecuritySection />
+            <FAQSection />
             <FinalCTA />
-            <Footer />
           </motion.div>
         )}
 
@@ -59,7 +62,6 @@ function AppContent() {
             transition={{ duration: 0.3 }}
           >
             <ArticlesHub />
-            <Footer />
           </motion.div>
         )}
 
@@ -72,7 +74,6 @@ function AppContent() {
             transition={{ duration: 0.3 }}
           >
             <ArticleDetail articleId={currentArticleId} />
-            <Footer />
           </motion.div>
         )}
       </AnimatePresence>

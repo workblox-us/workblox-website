@@ -1,15 +1,16 @@
-import { motion } from 'motion/react';
-import { Box, Container, Typography, Button } from '@mui/material';
-import { 
-  ArrowForward, 
-  RemoveRedEye,
-  TrendingUp,
-  Rocket,
+import {
+  ArrowForward,
   Article as ArticleIcon,
+  RemoveRedEye,
+  Rocket,
+  TrendingUp,
 } from '@mui/icons-material';
-import { useThemeColors } from '../hooks/useThemeColors';
+import { Box, Button, Container, Typography } from '@mui/material';
+import { motion } from 'motion/react';
+
 import { useNavigation } from '../contexts/NavigationContext';
-import { getFeaturedArticles, Article } from '../data/articlesData';
+import { Article, getFeaturedArticles } from '../data/articlesData';
+import { useThemeColors } from '../hooks/useThemeColors';
 
 export function ArticlesPreview() {
   const colors = useThemeColors();
@@ -18,26 +19,71 @@ export function ArticlesPreview() {
 
   const getTypeColor = (type: Article['type']) => {
     switch (type) {
-      case 'Product Update': return { bg: 'rgba(139, 92, 246, 0.15)', border: 'rgba(139, 92, 246, 0.3)', text: '#a78bfa' };
-      case 'Article': return { bg: 'rgba(59, 130, 246, 0.15)', border: 'rgba(59, 130, 246, 0.3)', text: '#60a5fa' };
-      case 'Guide': return { bg: 'rgba(16, 185, 129, 0.15)', border: 'rgba(16, 185, 129, 0.3)', text: '#34d399' };
-      case 'Release Notes': return { bg: 'rgba(245, 158, 11, 0.15)', border: 'rgba(245, 158, 11, 0.3)', text: '#fbbf24' };
+      case 'Product Update':
+        return {
+          bg: 'rgba(139, 92, 246, 0.15)',
+          border: 'rgba(139, 92, 246, 0.3)',
+          text: '#a78bfa',
+        };
+      case 'Article':
+        return {
+          bg: 'rgba(59, 130, 246, 0.15)',
+          border: 'rgba(59, 130, 246, 0.3)',
+          text: '#60a5fa',
+        };
+      case 'Guide':
+        return {
+          bg: 'rgba(16, 185, 129, 0.15)',
+          border: 'rgba(16, 185, 129, 0.3)',
+          text: '#34d399',
+        };
+      case 'Release Notes':
+        return {
+          bg: 'rgba(245, 158, 11, 0.15)',
+          border: 'rgba(245, 158, 11, 0.3)',
+          text: '#fbbf24',
+        };
     }
   };
 
   const getBadgeColor = (badge: Article['badge']) => {
     switch (badge) {
-      case 'New': return { bg: 'rgba(236, 72, 153, 0.15)', border: 'rgba(236, 72, 153, 0.3)', text: '#ec4899' };
-      case 'Improved': return { bg: 'rgba(99, 102, 241, 0.15)', border: 'rgba(99, 102, 241, 0.3)', text: '#a5b4fc' };
-      case 'Breaking': return { bg: 'rgba(239, 68, 68, 0.15)', border: 'rgba(239, 68, 68, 0.3)', text: '#f87171' };
-      case 'Popular': return { bg: 'rgba(251, 191, 36, 0.15)', border: 'rgba(251, 191, 36, 0.3)', text: '#fbbf24' };
-      default: return { bg: 'rgba(156, 163, 175, 0.15)', border: 'rgba(156, 163, 175, 0.3)', text: '#9ca3af' };
+      case 'New':
+        return {
+          bg: 'rgba(236, 72, 153, 0.15)',
+          border: 'rgba(236, 72, 153, 0.3)',
+          text: '#ec4899',
+        };
+      case 'Improved':
+        return {
+          bg: 'rgba(99, 102, 241, 0.15)',
+          border: 'rgba(99, 102, 241, 0.3)',
+          text: '#a5b4fc',
+        };
+      case 'Breaking':
+        return {
+          bg: 'rgba(239, 68, 68, 0.15)',
+          border: 'rgba(239, 68, 68, 0.3)',
+          text: '#f87171',
+        };
+      case 'Popular':
+        return {
+          bg: 'rgba(251, 191, 36, 0.15)',
+          border: 'rgba(251, 191, 36, 0.3)',
+          text: '#fbbf24',
+        };
+      default:
+        return {
+          bg: 'rgba(156, 163, 175, 0.15)',
+          border: 'rgba(156, 163, 175, 0.3)',
+          text: '#9ca3af',
+        };
     }
   };
 
   return (
     <Box
-      component="section"
+      component='section'
       sx={{
         position: 'relative',
         py: { xs: 10, md: 16 },
@@ -49,13 +95,13 @@ export function ArticlesPreview() {
         sx={{
           position: 'absolute',
           inset: 0,
-          background: colors.isDark 
+          background: colors.isDark
             ? 'linear-gradient(to bottom, #000000, rgba(99, 102, 241, 0.05), #000000)'
             : 'linear-gradient(to bottom, #ffffff, rgba(99, 102, 241, 0.02), #f8f9fa)',
         }}
       />
 
-      <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 10 }}>
+      <Container maxWidth='lg' sx={{ position: 'relative', zIndex: 10 }}>
         {/* Section Header */}
         <Box
           component={motion.div}
@@ -63,13 +109,9 @@ export function ArticlesPreview() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          sx={{ 
-            display: 'flex', 
-            alignItems: 'center', 
-            justifyContent: 'space-between',
-            flexWrap: 'wrap',
-            gap: 3,
+          sx={{
             mb: 6,
+            textAlign: 'center',
           }}
         >
           <Box>
@@ -81,29 +123,55 @@ export function ArticlesPreview() {
                 px: 2,
                 py: 0.75,
                 borderRadius: '50px',
-                bgcolor: colors.isDark ? 'rgba(99, 102, 241, 0.1)' : 'rgba(99, 102, 241, 0.08)',
-                border: colors.isDark ? '1px solid rgba(99, 102, 241, 0.2)' : '1px solid rgba(99, 102, 241, 0.3)',
+                bgcolor: colors.isDark
+                  ? 'rgba(99, 102, 241, 0.1)'
+                  : 'rgba(99, 102, 241, 0.08)',
+                border: colors.isDark
+                  ? '1px solid rgba(99, 102, 241, 0.2)'
+                  : '1px solid rgba(99, 102, 241, 0.3)',
                 backdropFilter: 'blur(8px)',
                 mb: 2,
               }}
             >
-              <TrendingUp sx={{ fontSize: '0.875rem', color: colors.isDark ? '#a5b4fc' : '#6366f1' }} />
-              <Typography variant="caption" sx={{ color: colors.isDark ? '#a5b4fc' : '#6366f1', fontSize: '0.8125rem' }}>
+              <TrendingUp
+                sx={{
+                  fontSize: '0.875rem',
+                  color: colors.isDark ? '#a5b4fc' : '#6366f1',
+                }}
+              />
+              <Typography
+                variant='caption'
+                sx={{
+                  color: colors.isDark ? '#a5b4fc' : '#6366f1',
+                  fontSize: '0.8125rem',
+                }}
+              >
                 Latest Updates
               </Typography>
             </Box>
-            <Typography 
-              variant="h2" 
-              sx={{ 
-                fontSize: { xs: '2rem', md: '2.5rem' },
+            <Typography
+              variant='h2'
+              sx={{
+                fontSize: { xs: '2.25rem', md: '3rem' },
                 color: colors.text.primary,
                 fontWeight: 700,
               }}
             >
-              Articles & Product Updates
+              Articles &{' '}
+              <Box
+                component='span'
+                sx={{
+                  background:
+                    'linear-gradient(90deg, #c084fc 0%, #60a5fa 50%, #22d3ee 100%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                }}
+              >
+                Product Updates
+              </Box>
             </Typography>
-            <Typography 
-              sx={{ 
+            <Typography
+              sx={{
                 color: colors.text.secondary,
                 mt: 1,
                 fontSize: '1.0625rem',
@@ -112,28 +180,6 @@ export function ArticlesPreview() {
               Insights, updates, and guides from the Workblox team
             </Typography>
           </Box>
-
-          <Button
-            endIcon={<ArrowForward />}
-            onClick={() => navigateTo('articles')}
-            sx={{
-              px: 3,
-              py: 1.25,
-              borderRadius: '10px',
-              background: 'linear-gradient(135deg, #6366f1, #8b5cf6)',
-              color: 'white',
-              fontSize: '0.9375rem',
-              fontWeight: 600,
-              textTransform: 'none',
-              '&:hover': {
-                boxShadow: '0 8px 24px rgba(99, 102, 241, 0.4)',
-                transform: 'translateY(-2px)',
-              },
-              transition: 'all 0.3s ease',
-            }}
-          >
-            View All Articles
-          </Button>
         </Box>
 
         {/* Featured Articles Grid */}
@@ -146,7 +192,9 @@ export function ArticlesPreview() {
         >
           {featuredArticles.map((article, idx) => {
             const typeColors = getTypeColor(article.type);
-            const badgeColors = article.badge ? getBadgeColor(article.badge) : null;
+            const badgeColors = article.badge
+              ? getBadgeColor(article.badge)
+              : null;
 
             return (
               <Box
@@ -161,14 +209,20 @@ export function ArticlesPreview() {
                 sx={{
                   p: 4,
                   borderRadius: '16px',
-                  bgcolor: colors.isDark ? 'rgba(255, 255, 255, 0.03)' : 'rgba(0, 0, 0, 0.02)',
-                  border: colors.isDark ? '1px solid rgba(255, 255, 255, 0.1)' : '1px solid rgba(0, 0, 0, 0.1)',
+                  bgcolor: colors.isDark
+                    ? 'rgba(255, 255, 255, 0.03)'
+                    : 'rgba(0, 0, 0, 0.02)',
+                  border: colors.isDark
+                    ? '1px solid rgba(255, 255, 255, 0.1)'
+                    : '1px solid rgba(0, 0, 0, 0.1)',
                   cursor: 'pointer',
                   position: 'relative',
                   overflow: 'hidden',
                   transition: 'all 0.3s ease',
                   '&:hover': {
-                    bgcolor: colors.isDark ? 'rgba(255, 255, 255, 0.05)' : 'rgba(0, 0, 0, 0.04)',
+                    bgcolor: colors.isDark
+                      ? 'rgba(255, 255, 255, 0.05)'
+                      : 'rgba(0, 0, 0, 0.04)',
                     border: '1px solid rgba(99, 102, 241, 0.3)',
                     boxShadow: '0 12px 40px rgba(99, 102, 241, 0.2)',
                   },
@@ -182,7 +236,8 @@ export function ArticlesPreview() {
                   sx={{
                     position: 'absolute',
                     inset: 0,
-                    background: 'radial-gradient(circle at top right, rgba(99, 102, 241, 0.15), transparent 60%)',
+                    background:
+                      'radial-gradient(circle at top right, rgba(99, 102, 241, 0.15), transparent 60%)',
                     pointerEvents: 'none',
                   }}
                 />
@@ -194,7 +249,8 @@ export function ArticlesPreview() {
                       width: 48,
                       height: 48,
                       borderRadius: '12px',
-                      background: 'linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(139, 92, 246, 0.2))',
+                      background:
+                        'linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(139, 92, 246, 0.2))',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
@@ -204,12 +260,16 @@ export function ArticlesPreview() {
                     {article.type === 'Product Update' ? (
                       <Rocket sx={{ fontSize: '1.5rem', color: '#a78bfa' }} />
                     ) : (
-                      <ArticleIcon sx={{ fontSize: '1.5rem', color: '#60a5fa' }} />
+                      <ArticleIcon
+                        sx={{ fontSize: '1.5rem', color: '#60a5fa' }}
+                      />
                     )}
                   </Box>
 
                   {/* Badges */}
-                  <Box sx={{ display: 'flex', gap: 1, mb: 2, flexWrap: 'wrap' }}>
+                  <Box
+                    sx={{ display: 'flex', gap: 1, mb: 2, flexWrap: 'wrap' }}
+                  >
                     <Box
                       sx={{
                         px: 1.5,
@@ -273,13 +333,32 @@ export function ArticlesPreview() {
 
                   {/* Meta */}
                   <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-                    <Typography sx={{ color: colors.text.secondary, fontSize: '0.8125rem' }}>
+                    <Typography
+                      sx={{
+                        color: colors.text.secondary,
+                        fontSize: '0.8125rem',
+                      }}
+                    >
                       {article.readTime} min read
                     </Typography>
-                    <Typography sx={{ color: colors.text.secondary }}>•</Typography>
-                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
-                      <RemoveRedEye sx={{ fontSize: '0.875rem', color: colors.text.secondary }} />
-                      <Typography sx={{ color: colors.text.secondary, fontSize: '0.8125rem' }}>
+                    <Typography sx={{ color: colors.text.secondary }}>
+                      •
+                    </Typography>
+                    <Box
+                      sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}
+                    >
+                      <RemoveRedEye
+                        sx={{
+                          fontSize: '0.875rem',
+                          color: colors.text.secondary,
+                        }}
+                      />
+                      <Typography
+                        sx={{
+                          color: colors.text.secondary,
+                          fontSize: '0.8125rem',
+                        }}
+                      >
                         {article.views}
                       </Typography>
                     </Box>
@@ -288,6 +367,42 @@ export function ArticlesPreview() {
               </Box>
             );
           })}
+        </Box>
+
+        {/* View All Articles Button */}
+        <Box
+          component={motion.div}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          sx={{
+            display: 'flex',
+            justifyContent: 'center',
+            mt: 6,
+          }}
+        >
+          <Button
+            endIcon={<ArrowForward />}
+            onClick={() => navigateTo('articles')}
+            sx={{
+              px: 3,
+              py: 1.25,
+              borderRadius: '10px',
+              background: 'linear-gradient(135deg, #6366f1, #8b5cf6)',
+              color: 'white',
+              fontSize: '0.9375rem',
+              fontWeight: 600,
+              textTransform: 'none',
+              '&:hover': {
+                boxShadow: '0 8px 24px rgba(99, 102, 241, 0.4)',
+                transform: 'translateY(-2px)',
+              },
+              transition: 'all 0.3s ease',
+            }}
+          >
+            View All Articles
+          </Button>
         </Box>
       </Container>
     </Box>

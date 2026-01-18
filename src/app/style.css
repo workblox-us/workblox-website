@@ -1,3 +1,6 @@
+html body {
+  margin: 0;
+}
 @layer properties {
   @supports (((-webkit-hyphens: none)) and (not (margin-trim: inline))) or
     ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
@@ -378,7 +381,6 @@
 
   body {
     background-color: var(--background);
-    color: var(--foreground);
   }
 
   * {
@@ -394,7 +396,6 @@
 
   body {
     background-color: var(--background);
-    color: var(--foreground);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -554,6 +555,10 @@
     --tw-ease: var(--ease-in-out);
     transition-timing-function: var(--ease-in-out);
   }
+}
+
+html {
+  scroll-behavior: smooth !important;
 }
 
 :root {
@@ -822,4 +827,13 @@ html {
 @property --tw-ease {
   syntax: '*';
   inherits: false;
+}
+html {
+  color: #fff;
+}
+[data-theme='dark'] {
+  color: #fff;
+}
+[data-theme='light'] {
+  color: #000;
 }

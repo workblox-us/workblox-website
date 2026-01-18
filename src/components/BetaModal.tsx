@@ -1,7 +1,21 @@
+import {
+  ArrowForward,
+  CheckCircle,
+  Close,
+  PlayArrow,
+} from '@mui/icons-material';
+import {
+  Box,
+  Button,
+  IconButton,
+  MenuItem,
+  Portal,
+  TextField,
+  Typography,
+} from '@mui/material';
+import { AnimatePresence, motion } from 'motion/react';
 import { useState } from 'react';
-import { Box, Typography, TextField, MenuItem, Button, IconButton, Portal } from '@mui/material';
-import { motion, AnimatePresence } from 'motion/react';
-import { Close, ArrowForward, CheckCircle, PlayArrow } from '@mui/icons-material';
+
 import { useThemeColors } from '../hooks/useThemeColors';
 
 interface BetaModalProps {
@@ -47,12 +61,12 @@ export function BetaModal({ open, onClose }: BetaModalProps) {
               transition={{ duration: 0.3 }}
               onClick={handleClose}
               sx={{
-                position: "fixed",
+                position: 'fixed',
                 inset: 0,
                 bgcolor: colors.isDark
-                  ? "rgba(0, 0, 0, 0.7)"
-                  : "rgba(0, 0, 0, 0.5)",
-                backdropFilter: "blur(12px)",
+                  ? 'rgba(0, 0, 0, 0.7)'
+                  : 'rgba(0, 0, 0, 0.5)',
+                backdropFilter: 'blur(12px)',
                 zIndex: 9998,
               }}
             />
@@ -60,15 +74,15 @@ export function BetaModal({ open, onClose }: BetaModalProps) {
             {/* Modal Container */}
             <Box
               sx={{
-                position: "fixed",
+                position: 'fixed',
                 inset: 0,
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
                 zIndex: 9999,
                 p: 2,
                 // keep your pointerEvents trick:
-                pointerEvents: "none",
+                pointerEvents: 'none',
               }}
             >
               <Box
@@ -78,10 +92,10 @@ export function BetaModal({ open, onClose }: BetaModalProps) {
                 exit={{ opacity: 0, scale: 0.95, y: 20 }}
                 transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
                 sx={{
-                  position: "relative",
-                  width: "100%",
-                  maxWidth: "520px",
-                  pointerEvents: "auto",
+                  position: 'relative',
+                  width: '100%',
+                  maxWidth: '520px',
+                  pointerEvents: 'auto',
                 }}
               >
                 {!submitted ? (
@@ -112,7 +126,8 @@ export function BetaModal({ open, onClose }: BetaModalProps) {
                         transform: 'translateX(-50%)',
                         width: '60%',
                         height: '200px',
-                        background: 'radial-gradient(ellipse at center, rgba(139, 92, 246, 0.15), transparent 70%)',
+                        background:
+                          'radial-gradient(ellipse at center, rgba(139, 92, 246, 0.15), transparent 70%)',
                         pointerEvents: 'none',
                       }}
                     />
@@ -127,7 +142,9 @@ export function BetaModal({ open, onClose }: BetaModalProps) {
                         color: colors.text.secondary,
                         zIndex: 10,
                         '&:hover': {
-                          bgcolor: colors.isDark ? 'rgba(255, 255, 255, 0.05)' : 'rgba(0, 0, 0, 0.05)',
+                          bgcolor: colors.isDark
+                            ? 'rgba(255, 255, 255, 0.05)'
+                            : 'rgba(0, 0, 0, 0.05)',
                           color: colors.text.primary,
                         },
                       }}
@@ -137,14 +154,14 @@ export function BetaModal({ open, onClose }: BetaModalProps) {
 
                     {/* Content */}
                     <Box
-                      component="form"
+                      component='form'
                       onSubmit={handleSubmit}
                       sx={{ p: { xs: 4, sm: 5 }, position: 'relative' }}
                     >
                       {/* Header */}
                       <Box sx={{ mb: 4, textAlign: 'center' }}>
                         <Typography
-                          variant="h4"
+                          variant='h4'
                           sx={{
                             fontSize: { xs: '1.75rem', sm: '2rem' },
                             fontWeight: 700,
@@ -156,7 +173,7 @@ export function BetaModal({ open, onClose }: BetaModalProps) {
                           Join the Workblox Beta
                         </Typography>
                         <Typography
-                          variant="body1"
+                          variant='body1'
                           sx={{
                             color: colors.text.secondary,
                             fontSize: '0.9375rem',
@@ -171,7 +188,8 @@ export function BetaModal({ open, onClose }: BetaModalProps) {
                           sx={{
                             width: '60px',
                             height: '3px',
-                            background: 'linear-gradient(90deg, #c084fc 0%, #60a5fa 100%)',
+                            background:
+                              'linear-gradient(90deg, #c084fc 0%, #60a5fa 100%)',
                             borderRadius: '2px',
                             mx: 'auto',
                             mt: 2.5,
@@ -180,11 +198,17 @@ export function BetaModal({ open, onClose }: BetaModalProps) {
                       </Box>
 
                       {/* Form Fields */}
-                      <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2.5 }}>
+                      <Box
+                        sx={{
+                          display: 'flex',
+                          flexDirection: 'column',
+                          gap: 2.5,
+                        }}
+                      >
                         {/* Email */}
                         <Box>
                           <Typography
-                            variant="caption"
+                            variant='caption'
                             sx={{
                               display: 'block',
                               color: colors.text.primary,
@@ -198,30 +222,45 @@ export function BetaModal({ open, onClose }: BetaModalProps) {
                           <TextField
                             fullWidth
                             required
-                            type="email"
-                            placeholder="you@company.com"
+                            type='email'
+                            placeholder='you@company.com'
                             value={formState.email}
-                            onChange={(e) => setFormState({ ...formState, email: e.target.value })}
+                            onChange={(e) =>
+                              setFormState({
+                                ...formState,
+                                email: e.target.value,
+                              })
+                            }
                             sx={{
                               '& .MuiOutlinedInput-root': {
-                                bgcolor: colors.isDark ? 'rgba(255, 255, 255, 0.03)' : 'rgba(0, 0, 0, 0.02)',
+                                bgcolor: colors.isDark
+                                  ? 'rgba(255, 255, 255, 0.03)'
+                                  : 'rgba(0, 0, 0, 0.02)',
                                 borderRadius: '12px',
                                 transition: 'all 0.3s ease',
                                 '& fieldset': {
-                                  borderColor: colors.isDark ? 'rgba(255, 255, 255, 0.08)' : 'rgba(0, 0, 0, 0.1)',
+                                  borderColor: colors.isDark
+                                    ? 'rgba(255, 255, 255, 0.08)'
+                                    : 'rgba(0, 0, 0, 0.1)',
                                   transition: 'all 0.3s ease',
                                 },
                                 '&:hover fieldset': {
-                                  borderColor: colors.isDark ? 'rgba(139, 92, 246, 0.3)' : 'rgba(139, 92, 246, 0.4)',
+                                  borderColor: colors.isDark
+                                    ? 'rgba(139, 92, 246, 0.3)'
+                                    : 'rgba(139, 92, 246, 0.4)',
                                 },
                                 '&.Mui-focused': {
-                                  bgcolor: colors.isDark ? 'rgba(255, 255, 255, 0.05)' : 'rgba(255, 255, 255, 0.9)',
+                                  bgcolor: colors.isDark
+                                    ? 'rgba(255, 255, 255, 0.05)'
+                                    : 'rgba(255, 255, 255, 0.9)',
                                   boxShadow: colors.isDark
                                     ? '0 0 0 3px rgba(139, 92, 246, 0.15)'
                                     : '0 0 0 3px rgba(139, 92, 246, 0.1)',
                                 },
                                 '&.Mui-focused fieldset': {
-                                  borderColor: colors.isDark ? 'rgba(139, 92, 246, 0.5)' : 'rgba(139, 92, 246, 0.6)',
+                                  borderColor: colors.isDark
+                                    ? 'rgba(139, 92, 246, 0.5)'
+                                    : 'rgba(139, 92, 246, 0.6)',
                                 },
                               },
                               '& .MuiOutlinedInput-input': {
@@ -236,7 +275,7 @@ export function BetaModal({ open, onClose }: BetaModalProps) {
                         {/* Company */}
                         <Box>
                           <Typography
-                            variant="caption"
+                            variant='caption'
                             sx={{
                               display: 'block',
                               color: colors.text.primary,
@@ -249,29 +288,44 @@ export function BetaModal({ open, onClose }: BetaModalProps) {
                           </Typography>
                           <TextField
                             fullWidth
-                            placeholder="Acme Inc."
+                            placeholder='Acme Inc.'
                             value={formState.company}
-                            onChange={(e) => setFormState({ ...formState, company: e.target.value })}
+                            onChange={(e) =>
+                              setFormState({
+                                ...formState,
+                                company: e.target.value,
+                              })
+                            }
                             sx={{
                               '& .MuiOutlinedInput-root': {
-                                bgcolor: colors.isDark ? 'rgba(255, 255, 255, 0.03)' : 'rgba(0, 0, 0, 0.02)',
+                                bgcolor: colors.isDark
+                                  ? 'rgba(255, 255, 255, 0.03)'
+                                  : 'rgba(0, 0, 0, 0.02)',
                                 borderRadius: '12px',
                                 transition: 'all 0.3s ease',
                                 '& fieldset': {
-                                  borderColor: colors.isDark ? 'rgba(255, 255, 255, 0.08)' : 'rgba(0, 0, 0, 0.1)',
+                                  borderColor: colors.isDark
+                                    ? 'rgba(255, 255, 255, 0.08)'
+                                    : 'rgba(0, 0, 0, 0.1)',
                                   transition: 'all 0.3s ease',
                                 },
                                 '&:hover fieldset': {
-                                  borderColor: colors.isDark ? 'rgba(139, 92, 246, 0.3)' : 'rgba(139, 92, 246, 0.4)',
+                                  borderColor: colors.isDark
+                                    ? 'rgba(139, 92, 246, 0.3)'
+                                    : 'rgba(139, 92, 246, 0.4)',
                                 },
                                 '&.Mui-focused': {
-                                  bgcolor: colors.isDark ? 'rgba(255, 255, 255, 0.05)' : 'rgba(255, 255, 255, 0.9)',
+                                  bgcolor: colors.isDark
+                                    ? 'rgba(255, 255, 255, 0.05)'
+                                    : 'rgba(255, 255, 255, 0.9)',
                                   boxShadow: colors.isDark
                                     ? '0 0 0 3px rgba(139, 92, 246, 0.15)'
                                     : '0 0 0 3px rgba(139, 92, 246, 0.1)',
                                 },
                                 '&.Mui-focused fieldset': {
-                                  borderColor: colors.isDark ? 'rgba(139, 92, 246, 0.5)' : 'rgba(139, 92, 246, 0.6)',
+                                  borderColor: colors.isDark
+                                    ? 'rgba(139, 92, 246, 0.5)'
+                                    : 'rgba(139, 92, 246, 0.6)',
                                 },
                               },
                               '& .MuiOutlinedInput-input': {
@@ -286,7 +340,7 @@ export function BetaModal({ open, onClose }: BetaModalProps) {
                         {/* Role */}
                         <Box>
                           <Typography
-                            variant="caption"
+                            variant='caption'
                             sx={{
                               display: 'block',
                               color: colors.text.primary,
@@ -300,29 +354,44 @@ export function BetaModal({ open, onClose }: BetaModalProps) {
                           <TextField
                             fullWidth
                             select
-                            placeholder="Select your role"
+                            placeholder='Select your role'
                             value={formState.role}
-                            onChange={(e) => setFormState({ ...formState, role: e.target.value })}
+                            onChange={(e) =>
+                              setFormState({
+                                ...formState,
+                                role: e.target.value,
+                              })
+                            }
                             sx={{
                               '& .MuiOutlinedInput-root': {
-                                bgcolor: colors.isDark ? 'rgba(255, 255, 255, 0.03)' : 'rgba(0, 0, 0, 0.02)',
+                                bgcolor: colors.isDark
+                                  ? 'rgba(255, 255, 255, 0.03)'
+                                  : 'rgba(0, 0, 0, 0.02)',
                                 borderRadius: '12px',
                                 transition: 'all 0.3s ease',
                                 '& fieldset': {
-                                  borderColor: colors.isDark ? 'rgba(255, 255, 255, 0.08)' : 'rgba(0, 0, 0, 0.1)',
+                                  borderColor: colors.isDark
+                                    ? 'rgba(255, 255, 255, 0.08)'
+                                    : 'rgba(0, 0, 0, 0.1)',
                                   transition: 'all 0.3s ease',
                                 },
                                 '&:hover fieldset': {
-                                  borderColor: colors.isDark ? 'rgba(139, 92, 246, 0.3)' : 'rgba(139, 92, 246, 0.4)',
+                                  borderColor: colors.isDark
+                                    ? 'rgba(139, 92, 246, 0.3)'
+                                    : 'rgba(139, 92, 246, 0.4)',
                                 },
                                 '&.Mui-focused': {
-                                  bgcolor: colors.isDark ? 'rgba(255, 255, 255, 0.05)' : 'rgba(255, 255, 255, 0.9)',
+                                  bgcolor: colors.isDark
+                                    ? 'rgba(255, 255, 255, 0.05)'
+                                    : 'rgba(255, 255, 255, 0.9)',
                                   boxShadow: colors.isDark
                                     ? '0 0 0 3px rgba(139, 92, 246, 0.15)'
                                     : '0 0 0 3px rgba(139, 92, 246, 0.1)',
                                 },
                                 '&.Mui-focused fieldset': {
-                                  borderColor: colors.isDark ? 'rgba(139, 92, 246, 0.5)' : 'rgba(139, 92, 246, 0.6)',
+                                  borderColor: colors.isDark
+                                    ? 'rgba(139, 92, 246, 0.5)'
+                                    : 'rgba(139, 92, 246, 0.6)',
                                 },
                               },
                               '& .MuiOutlinedInput-input': {
@@ -343,7 +412,7 @@ export function BetaModal({ open, onClose }: BetaModalProps) {
                         {/* Team Size */}
                         <Box>
                           <Typography
-                            variant="caption"
+                            variant='caption'
                             sx={{
                               display: 'block',
                               color: colors.text.primary,
@@ -354,11 +423,19 @@ export function BetaModal({ open, onClose }: BetaModalProps) {
                           >
                             Team size
                           </Typography>
-                          <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 1 }}>
+                          <Box
+                            sx={{
+                              display: 'grid',
+                              gridTemplateColumns: 'repeat(4, 1fr)',
+                              gap: 1,
+                            }}
+                          >
                             {teamSizes.map((size) => (
                               <Box
                                 key={size}
-                                onClick={() => setFormState({ ...formState, teamSize: size })}
+                                onClick={() =>
+                                  setFormState({ ...formState, teamSize: size })
+                                }
                                 sx={{
                                   py: 1.5,
                                   px: 1.5,
@@ -368,18 +445,35 @@ export function BetaModal({ open, onClose }: BetaModalProps) {
                                   fontWeight: 500,
                                   cursor: 'pointer',
                                   transition: 'all 0.3s ease',
-                                  bgcolor: formState.teamSize === size
-                                    ? colors.isDark ? 'rgba(139, 92, 246, 0.2)' : 'rgba(139, 92, 246, 0.15)'
-                                    : colors.isDark ? 'rgba(255, 255, 255, 0.03)' : 'rgba(0, 0, 0, 0.02)',
-                                  border: formState.teamSize === size
-                                    ? colors.isDark ? '1px solid rgba(139, 92, 246, 0.5)' : '1px solid rgba(139, 92, 246, 0.6)'
-                                    : colors.isDark ? '1px solid rgba(255, 255, 255, 0.08)' : '1px solid rgba(0, 0, 0, 0.1)',
-                                  color: formState.teamSize === size
-                                    ? colors.isDark ? '#c084fc' : '#7c3aed'
-                                    : colors.text.secondary,
+                                  bgcolor:
+                                    formState.teamSize === size
+                                      ? colors.isDark
+                                        ? 'rgba(139, 92, 246, 0.2)'
+                                        : 'rgba(139, 92, 246, 0.15)'
+                                      : colors.isDark
+                                      ? 'rgba(255, 255, 255, 0.03)'
+                                      : 'rgba(0, 0, 0, 0.02)',
+                                  border:
+                                    formState.teamSize === size
+                                      ? colors.isDark
+                                        ? '1px solid rgba(139, 92, 246, 0.5)'
+                                        : '1px solid rgba(139, 92, 246, 0.6)'
+                                      : colors.isDark
+                                      ? '1px solid rgba(255, 255, 255, 0.08)'
+                                      : '1px solid rgba(0, 0, 0, 0.1)',
+                                  color:
+                                    formState.teamSize === size
+                                      ? colors.isDark
+                                        ? '#c084fc'
+                                        : '#7c3aed'
+                                      : colors.text.secondary,
                                   '&:hover': {
-                                    bgcolor: colors.isDark ? 'rgba(139, 92, 246, 0.1)' : 'rgba(139, 92, 246, 0.08)',
-                                    borderColor: colors.isDark ? 'rgba(139, 92, 246, 0.3)' : 'rgba(139, 92, 246, 0.4)',
+                                    bgcolor: colors.isDark
+                                      ? 'rgba(139, 92, 246, 0.1)'
+                                      : 'rgba(139, 92, 246, 0.08)',
+                                    borderColor: colors.isDark
+                                      ? 'rgba(139, 92, 246, 0.3)'
+                                      : 'rgba(139, 92, 246, 0.4)',
                                     transform: 'translateY(-1px)',
                                   },
                                 }}
@@ -393,14 +487,15 @@ export function BetaModal({ open, onClose }: BetaModalProps) {
 
                       {/* Primary CTA */}
                       <Button
-                        type="submit"
+                        type='submit'
                         fullWidth
                         endIcon={<ArrowForward />}
                         sx={{
                           mt: 4,
                           py: 1.75,
                           borderRadius: '12px',
-                          background: 'linear-gradient(90deg, #9333ea 0%, #3b82f6 100%)',
+                          background:
+                            'linear-gradient(90deg, #9333ea 0%, #3b82f6 100%)',
                           color: 'white',
                           fontSize: '0.9375rem',
                           fontWeight: 600,
@@ -408,7 +503,8 @@ export function BetaModal({ open, onClose }: BetaModalProps) {
                           boxShadow: '0 0 30px rgba(147, 51, 234, 0.4)',
                           transition: 'all 0.3s ease',
                           '&:hover': {
-                            background: 'linear-gradient(90deg, #a855f7 0%, #60a5fa 100%)',
+                            background:
+                              'linear-gradient(90deg, #a855f7 0%, #60a5fa 100%)',
                             boxShadow: '0 0 40px rgba(147, 51, 234, 0.6)',
                             transform: 'translateY(-2px)',
                           },
@@ -421,7 +517,14 @@ export function BetaModal({ open, onClose }: BetaModalProps) {
                       </Button>
 
                       {/* Secondary Actions */}
-                      <Box sx={{ display: 'flex', justifyContent: 'center', gap: 3, mt: 3 }}>
+                      <Box
+                        sx={{
+                          display: 'flex',
+                          justifyContent: 'center',
+                          gap: 3,
+                          mt: 3,
+                        }}
+                      >
                         <Button
                           startIcon={<PlayArrow />}
                           sx={{
@@ -430,7 +533,9 @@ export function BetaModal({ open, onClose }: BetaModalProps) {
                             fontWeight: 500,
                             textTransform: 'none',
                             '&:hover': {
-                              bgcolor: colors.isDark ? 'rgba(139, 92, 246, 0.1)' : 'rgba(139, 92, 246, 0.08)',
+                              bgcolor: colors.isDark
+                                ? 'rgba(139, 92, 246, 0.1)'
+                                : 'rgba(139, 92, 246, 0.08)',
                             },
                           }}
                         >
@@ -443,7 +548,9 @@ export function BetaModal({ open, onClose }: BetaModalProps) {
                             fontWeight: 400,
                             textTransform: 'none',
                             '&:hover': {
-                              bgcolor: colors.isDark ? 'rgba(255, 255, 255, 0.03)' : 'rgba(0, 0, 0, 0.03)',
+                              bgcolor: colors.isDark
+                                ? 'rgba(255, 255, 255, 0.03)'
+                                : 'rgba(0, 0, 0, 0.03)',
                             },
                           }}
                         >
@@ -485,7 +592,9 @@ export function BetaModal({ open, onClose }: BetaModalProps) {
                         right: 20,
                         color: colors.text.secondary,
                         '&:hover': {
-                          bgcolor: colors.isDark ? 'rgba(255, 255, 255, 0.05)' : 'rgba(0, 0, 0, 0.05)',
+                          bgcolor: colors.isDark
+                            ? 'rgba(255, 255, 255, 0.05)'
+                            : 'rgba(0, 0, 0, 0.05)',
                           color: colors.text.primary,
                         },
                       }}
@@ -498,21 +607,27 @@ export function BetaModal({ open, onClose }: BetaModalProps) {
                       component={motion.div}
                       initial={{ scale: 0 }}
                       animate={{ scale: 1 }}
-                      transition={{ delay: 0.2, duration: 0.5, type: 'spring', stiffness: 200 }}
+                      transition={{
+                        delay: 0.2,
+                        duration: 0.5,
+                        type: 'spring',
+                        stiffness: 200,
+                      }}
                       sx={{ mb: 3 }}
                     >
                       <CheckCircle
                         sx={{
                           fontSize: '4rem',
                           color: '#22c55e',
-                          filter: 'drop-shadow(0 0 20px rgba(34, 197, 94, 0.4))',
+                          filter:
+                            'drop-shadow(0 0 20px rgba(34, 197, 94, 0.4))',
                         }}
                       />
                     </Box>
 
                     {/* Success Message */}
                     <Typography
-                      variant="h4"
+                      variant='h4'
                       sx={{
                         fontSize: { xs: '1.75rem', sm: '2rem' },
                         fontWeight: 700,
@@ -524,7 +639,7 @@ export function BetaModal({ open, onClose }: BetaModalProps) {
                       You're on the list! 🎉
                     </Typography>
                     <Typography
-                      variant="body1"
+                      variant='body1'
                       sx={{
                         color: colors.text.secondary,
                         fontSize: '0.9375rem',
@@ -539,7 +654,7 @@ export function BetaModal({ open, onClose }: BetaModalProps) {
                       We're onboarding users in waves.
                     </Typography>
                     <Typography
-                      variant="caption"
+                      variant='caption'
                       sx={{
                         display: 'inline-block',
                         color: colors.isDark ? '#c084fc' : '#7c3aed',
@@ -548,8 +663,12 @@ export function BetaModal({ open, onClose }: BetaModalProps) {
                         px: 2,
                         py: 0.75,
                         borderRadius: '20px',
-                        bgcolor: colors.isDark ? 'rgba(139, 92, 246, 0.1)' : 'rgba(139, 92, 246, 0.08)',
-                        border: colors.isDark ? '1px solid rgba(139, 92, 246, 0.2)' : '1px solid rgba(139, 92, 246, 0.15)',
+                        bgcolor: colors.isDark
+                          ? 'rgba(139, 92, 246, 0.1)'
+                          : 'rgba(139, 92, 246, 0.08)',
+                        border: colors.isDark
+                          ? '1px solid rgba(139, 92, 246, 0.2)'
+                          : '1px solid rgba(139, 92, 246, 0.15)',
                         mt: 2,
                         mb: 4,
                       }}
@@ -558,20 +677,28 @@ export function BetaModal({ open, onClose }: BetaModalProps) {
                     </Typography>
 
                     {/* Follow-up CTAs */}
-                    <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+                    <Box
+                      sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}
+                    >
                       <Button
-                        variant="outlined"
+                        variant='outlined'
                         sx={{
                           py: 1.5,
                           borderRadius: '12px',
-                          borderColor: colors.isDark ? 'rgba(139, 92, 246, 0.3)' : 'rgba(139, 92, 246, 0.4)',
+                          borderColor: colors.isDark
+                            ? 'rgba(139, 92, 246, 0.3)'
+                            : 'rgba(139, 92, 246, 0.4)',
                           color: colors.isDark ? '#c084fc' : '#7c3aed',
                           fontSize: '0.875rem',
                           fontWeight: 500,
                           textTransform: 'none',
                           '&:hover': {
-                            borderColor: colors.isDark ? 'rgba(139, 92, 246, 0.5)' : 'rgba(139, 92, 246, 0.6)',
-                            bgcolor: colors.isDark ? 'rgba(139, 92, 246, 0.05)' : 'rgba(139, 92, 246, 0.03)',
+                            borderColor: colors.isDark
+                              ? 'rgba(139, 92, 246, 0.5)'
+                              : 'rgba(139, 92, 246, 0.6)',
+                            bgcolor: colors.isDark
+                              ? 'rgba(139, 92, 246, 0.05)'
+                              : 'rgba(139, 92, 246, 0.03)',
                           },
                         }}
                       >
@@ -580,14 +707,16 @@ export function BetaModal({ open, onClose }: BetaModalProps) {
                       <Box sx={{ display: 'flex', gap: 2 }}>
                         <Button
                           fullWidth
-                          variant="text"
+                          variant='text'
                           sx={{
                             color: colors.text.secondary,
                             fontSize: '0.8125rem',
                             fontWeight: 400,
                             textTransform: 'none',
                             '&:hover': {
-                              bgcolor: colors.isDark ? 'rgba(255, 255, 255, 0.03)' : 'rgba(0, 0, 0, 0.03)',
+                              bgcolor: colors.isDark
+                                ? 'rgba(255, 255, 255, 0.03)'
+                                : 'rgba(0, 0, 0, 0.03)',
                             },
                           }}
                         >
@@ -595,7 +724,7 @@ export function BetaModal({ open, onClose }: BetaModalProps) {
                         </Button>
                         <Button
                           fullWidth
-                          variant="text"
+                          variant='text'
                           startIcon={<PlayArrow />}
                           sx={{
                             color: colors.text.secondary,
@@ -603,7 +732,9 @@ export function BetaModal({ open, onClose }: BetaModalProps) {
                             fontWeight: 400,
                             textTransform: 'none',
                             '&:hover': {
-                              bgcolor: colors.isDark ? 'rgba(255, 255, 255, 0.03)' : 'rgba(0, 0, 0, 0.03)',
+                              bgcolor: colors.isDark
+                                ? 'rgba(255, 255, 255, 0.03)'
+                                : 'rgba(0, 0, 0, 0.03)',
                             },
                           }}
                         >

@@ -1,11 +1,19 @@
-import { motion } from 'motion/react';
-import { ArrowForward, PlayArrow, AutoAwesome } from '@mui/icons-material';
-import { Box, Container, Typography, Button } from '@mui/material';
-import { useThemeColors } from '../hooks/useThemeColors';
+import {
+  AccessTime,
+  ArrowForward,
+  AutoAwesome,
+  Engineering,
+  Hub,
+  PlayArrow,
+} from '@mui/icons-material';
+import { Box, Button, Container, Typography } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
+import { motion } from 'motion/react';
 import { useState } from 'react';
+
 import { BetaModal } from './BetaModal';
 import { VideoPreviewModal } from './VideoPreviewModal';
+import { useThemeColors } from '../hooks/useThemeColors';
 
 export function Hero() {
   const colors = useThemeColors();
@@ -16,7 +24,7 @@ export function Hero() {
 
   return (
     <Box
-      component="section"
+      component='section'
       sx={{
         position: 'relative',
         minHeight: '100vh',
@@ -58,7 +66,8 @@ export function Hero() {
           inset: 0,
           backgroundImage: colors.grid.background,
           backgroundSize: '64px 64px',
-          WebkitMaskImage: 'radial-gradient(ellipse at center, black, transparent 80%)',
+          WebkitMaskImage:
+            'radial-gradient(ellipse at center, black, transparent 80%)',
         }}
       />
 
@@ -69,22 +78,23 @@ export function Hero() {
           inset: 0,
           overflow: 'hidden',
           opacity: isDark ? 0.15 : 0.25,
+          pointerEvents: 'none',
         }}
       >
-        {/* Scattered blocks inspired by Workblox logo */}
-        {[...Array(15)].map((_, i) => {
+        {/* Scattered blocks inspired by Workblox logo - Reduced from 15 to 8 blocks */}
+        {[...Array(8)].map((_, i) => {
           const colors = [
-            'rgba(251, 146, 60, 0.6)', // Orange
-            'rgba(251, 113, 133, 0.6)', // Pink
-            'rgba(34, 211, 238, 0.6)', // Cyan
+            'rgba(251, 146, 60, 0.5)', // Orange - reduced opacity
+            'rgba(251, 113, 133, 0.5)', // Pink - reduced opacity
+            'rgba(34, 211, 238, 0.5)', // Cyan - reduced opacity
           ];
-          const sizes = [40, 60, 80, 100];
+          const sizes = [40, 60, 80];
           const randomColor = colors[i % 3];
-          const randomSize = sizes[Math.floor(Math.random() * sizes.length)];
-          const randomX = Math.random() * 100;
-          const randomY = Math.random() * 100;
-          const randomDelay = Math.random() * 5;
-          const randomDuration = 15 + Math.random() * 10;
+          const randomSize = sizes[i % 3];
+          const randomX = (i * 13) % 100; // More deterministic positioning
+          const randomY = (i * 17) % 100;
+          const randomDelay = i * 0.5;
+          const randomDuration = 20 + (i % 3) * 5;
 
           return (
             <Box
@@ -92,9 +102,7 @@ export function Hero() {
               component={motion.div}
               animate={{
                 y: [0, -30, 0],
-                x: [0, Math.random() * 20 - 10, 0],
-                rotate: [0, 360],
-                opacity: [0.3, 0.6, 0.3],
+                opacity: [0.3, 0.5, 0.3],
               }}
               transition={{
                 duration: randomDuration,
@@ -110,14 +118,23 @@ export function Hero() {
                 height: randomSize,
                 background: randomColor,
                 borderRadius: '8px',
-                filter: 'blur(2px)',
+                filter: 'blur(3px)',
+                willChange: 'transform, opacity',
               }}
             />
           );
         })}
       </Box>
 
-      <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 10, textAlign: 'center' }}>
+      <Container
+        maxWidth='lg'
+        sx={{
+          position: 'relative',
+          zIndex: 10,
+          textAlign: 'center',
+          px: { xs: 2.5, sm: 3 },
+        }}
+      >
         {/* Badge */}
         <Box
           component={motion.div}
@@ -128,18 +145,29 @@ export function Hero() {
             display: 'inline-flex',
             alignItems: 'center',
             gap: 1,
-            px: 2,
-            py: 1,
+            px: { xs: 2, sm: 2 },
+            py: { xs: 0.75, sm: 1 },
             borderRadius: '50px',
             bgcolor: colors.bg.glass,
             border: `1px solid ${colors.border.light}`,
             backdropFilter: 'blur(8px)',
-            mb: 4,
+            mb: { xs: 3, md: 4 },
           }}
         >
-          <AutoAwesome sx={{ fontSize: '0.875rem', color: '#c084fc' }} />
-          <Typography variant="caption" sx={{ color: colors.text.secondary, fontSize: '0.875rem' }}>
-            ✨ Limited Beta Access • Q1 2025
+          <AutoAwesome
+            sx={{
+              fontSize: { xs: '0.75rem', sm: '0.875rem' },
+              color: '#c084fc',
+            }}
+          />
+          <Typography
+            variant='caption'
+            sx={{
+              color: colors.text.secondary,
+              fontSize: { xs: '0.75rem', sm: '0.875rem' },
+            }}
+          >
+            Early Access · Rolling Invites
           </Typography>
         </Box>
 
@@ -151,21 +179,22 @@ export function Hero() {
           transition={{ duration: 0.6, delay: 0.1 }}
         >
           <Typography
-            variant="h1"
+            variant='h1'
             sx={{
-              fontSize: { xs: '2.75rem', md: '4rem', lg: '5.5rem' },
+              fontSize: { xs: '2.5rem', sm: '3rem', md: '4rem', lg: '5.5rem' },
               color: colors.text.primary,
-              mb: 3,
+              mb: { xs: 2, md: 3 },
               letterSpacing: '-0.02em',
               fontWeight: 700,
+              lineHeight: 1.1,
             }}
           >
-            One Intelligent
+            Work
             <br />
             <Box
-              component="span"
+              component='span'
               sx={{
-                background: isDark 
+                background: isDark
                   ? 'linear-gradient(90deg, #c084fc 0%, #60a5fa 50%, #22d3ee 100%)'
                   : 'linear-gradient(90deg, #9333ea 0%, #3b82f6 50%, #0891b2 100%)',
                 WebkitBackgroundClip: 'text',
@@ -173,7 +202,7 @@ export function Hero() {
                 backgroundClip: 'text',
               }}
             >
-              Workspace
+              Finally Under Control
             </Box>
           </Typography>
         </Box>
@@ -186,29 +215,32 @@ export function Hero() {
           transition={{ duration: 0.6, delay: 0.2 }}
         >
           <Typography
-            variant="h6"
+            variant='h6'
             sx={{
-              fontSize: { xs: '1.125rem', md: '1.25rem' },
+              fontSize: { xs: '1rem', sm: '1.125rem', md: '1.25rem' },
               color: colors.text.secondary,
-              mb: 2,
-              maxWidth: '48rem',
+              mb: { xs: 1.5, md: 2 },
+              maxWidth: { xs: '100%', sm: '42rem', md: '48rem' },
               mx: 'auto',
               lineHeight: 1.6,
+              px: { xs: 1, sm: 0 },
             }}
           >
-            Replace scattered tools with one AI-powered workspace. Plan, prioritize, and execute without the chaos.
+            Workblox brings tasks, recurring processes, calendar, docs, and
+            conversations into one AI workspace.
           </Typography>
           <Typography
-            variant="body1"
+            variant='body1'
             sx={{
-              fontSize: { xs: '0.875rem', md: '0.9375rem' },
+              fontSize: { xs: '0.9375rem', sm: '0.9375rem' },
               color: colors.text.muted,
-              mb: 6,
-              maxWidth: '42rem',
+              mb: { xs: 4, md: 6 },
+              maxWidth: { xs: '100%', sm: '36rem', md: '42rem' },
               mx: 'auto',
+              px: { xs: 1, sm: 0 },
             }}
           >
-            Built for founders, project managers, and teams managing complex work every day.
+            Built for teams managing ongoing operations and complex projects.
           </Typography>
         </Box>
 
@@ -218,18 +250,28 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, alignItems: 'center', justifyContent: 'center', gap: 2, mb: 2 }}
+          sx={{
+            display: 'flex',
+            flexDirection: { xs: 'column', sm: 'row' },
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: 2,
+            mb: { xs: 1.5, md: 2 },
+            px: { xs: 1, sm: 0 },
+          }}
         >
           <Button
-            variant="contained"
+            variant='contained'
             endIcon={<ArrowForward />}
             sx={{
-              px: 4,
-              py: 2,
+              width: { xs: '100%', sm: 'auto' },
+              px: { xs: 3, sm: 4 },
+              py: { xs: 1.75, sm: 2 },
               borderRadius: '12px',
               background: 'linear-gradient(90deg, #9333ea 0%, #3b82f6 100%)',
               color: 'white',
-              fontSize: '0.875rem',
+              fontSize: { xs: '0.9375rem', sm: '0.875rem' },
+              fontWeight: 600,
               position: 'relative',
               overflow: 'hidden',
               '&:hover': {
@@ -242,7 +284,8 @@ export function Hero() {
                 left: '-100%',
                 width: '100%',
                 height: '100%',
-                background: 'linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent)',
+                background:
+                  'linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent)',
                 animation: 'shimmer 3s infinite',
               },
               '@keyframes shimmer': {
@@ -252,19 +295,21 @@ export function Hero() {
             }}
             onClick={() => setBetaModalOpen(true)}
           >
-            Join Early Access
+            Get Early Access
           </Button>
           <Button
-            variant="outlined"
+            variant='outlined'
             startIcon={<PlayArrow />}
             sx={{
-              px: 4,
-              py: 2,
+              width: { xs: '100%', sm: 'auto' },
+              px: { xs: 3, sm: 4 },
+              py: { xs: 1.75, sm: 2 },
               borderRadius: '12px',
               bgcolor: colors.bg.glass,
               border: `1px solid ${colors.border.light}`,
               color: colors.text.primary,
-              fontSize: '0.875rem',
+              fontSize: { xs: '0.9375rem', sm: '0.875rem' },
+              fontWeight: 500,
               backdropFilter: 'blur(8px)',
               '&:hover': {
                 bgcolor: colors.bg.glassHover,
@@ -283,41 +328,128 @@ export function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.5 }}
-          sx={{ mb: 8 }}
+          sx={{ mb: { xs: 6, md: 10 } }}
         >
           <Typography
-            variant="caption"
+            variant='caption'
             sx={{
               color: colors.text.muted,
-              fontSize: '0.75rem',
+              fontSize: { xs: '0.8125rem', sm: '0.75rem' },
             }}
           >
-            Limited beta access. Early users help shape the product. No spam.
+            Early access invites go out in waves. No spam.
           </Typography>
         </Box>
 
-        {/* Stats */}
+        {/* Credibility Row */}
         <Box
-          component={motion.div}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          sx={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 4, maxWidth: '32rem', mx: 'auto' }}
+          sx={{
+            display: 'grid',
+            gridTemplateColumns: { xs: '1fr', md: 'repeat(3, 1fr)' },
+            gap: { xs: 2.5, md: 3 },
+            maxWidth: '72rem',
+            mx: 'auto',
+          }}
         >
           {[
-            { value: '2.5K+', label: 'Waiting' },
-            { value: 'Q1 2025', label: 'Launch' },
-            { value: '50+', label: 'Integrations' },
-          ].map((stat) => (
-            <Box key={stat.label}>
-              <Typography variant="h3" sx={{ fontSize: { xs: '1.5rem', md: '1.875rem' }, color: colors.text.primary, mb: 0.5, fontWeight: 700 }}>
-                {stat.value}
-              </Typography>
-              <Typography variant="body2" sx={{ color: colors.text.secondary, fontSize: '0.875rem' }}>
-                {stat.label}
-              </Typography>
-            </Box>
-          ))}
+            {
+              icon: AccessTime,
+              iconColor: '#c084fc',
+              iconBg: 'rgba(192, 132, 252, 0.1)',
+              primary: 'Early access, rolling out in waves',
+              secondary:
+                'We onboard teams gradually to ensure quality and momentum',
+            },
+            {
+              icon: Engineering,
+              iconColor: '#60a5fa',
+              iconBg: 'rgba(96, 165, 250, 0.1)',
+              primary: 'Designed for real work',
+              secondary:
+                'Ongoing operations, recurring processes, and complex projects in one place',
+            },
+            {
+              icon: Hub,
+              iconColor: '#22d3ee',
+              iconBg: 'rgba(34, 211, 238, 0.1)',
+              primary: 'Deep integrations, platform-first',
+              secondary:
+                'Email, calendar, docs, chat, and tools unified in one workspace',
+            },
+          ].map((item, index) => {
+            const IconComponent = item.icon;
+            return (
+              <Box
+                key={index}
+                component={motion.div}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.5 + index * 0.1 }}
+                sx={{
+                  position: 'relative',
+                  p: { xs: 3, md: 4 },
+                  borderRadius: '16px',
+                  bgcolor: colors.bg.glass,
+                  border: `1px solid ${colors.border.light}`,
+                  backdropFilter: 'blur(12px)',
+                  transition: 'all 0.3s ease',
+                  '&:hover': {
+                    transform: 'translateY(-4px)',
+                    boxShadow: isDark
+                      ? `0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px ${item.iconColor}33`
+                      : `0 20px 40px rgba(0, 0, 0, 0.1), 0 0 20px ${item.iconColor}33`,
+                    border: `1px solid ${item.iconColor}66`,
+                  },
+                }}
+              >
+                {/* Icon */}
+                <Box
+                  sx={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    width: { xs: 48, md: 56 },
+                    height: { xs: 48, md: 56 },
+                    borderRadius: '12px',
+                    bgcolor: item.iconBg,
+                    mb: { xs: 2, md: 3 },
+                  }}
+                >
+                  <IconComponent
+                    sx={{
+                      fontSize: { xs: '1.5rem', md: '1.75rem' },
+                      color: item.iconColor,
+                    }}
+                  />
+                </Box>
+
+                {/* Primary Text */}
+                <Typography
+                  variant='h6'
+                  sx={{
+                    color: colors.text.primary,
+                    mb: 1.5,
+                    fontSize: { xs: '1rem', md: '1.125rem' },
+                    lineHeight: 1.4,
+                  }}
+                >
+                  {item.primary}
+                </Typography>
+
+                {/* Supporting Text */}
+                <Typography
+                  variant='body2'
+                  sx={{
+                    color: colors.text.secondary,
+                    fontSize: { xs: '0.875rem', md: '0.9375rem' },
+                    lineHeight: 1.6,
+                  }}
+                >
+                  {item.secondary}
+                </Typography>
+              </Box>
+            );
+          })}
         </Box>
       </Container>
 
@@ -327,7 +459,12 @@ export function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 1 }}
-        sx={{ position: 'absolute', bottom: 4, left: '50%', transform: 'translateX(-50%)' }}
+        sx={{
+          position: 'absolute',
+          bottom: 4,
+          left: '50%',
+          transform: 'translateX(-50%)',
+        }}
       >
         <Box
           sx={{
@@ -345,7 +482,12 @@ export function Hero() {
             component={motion.div}
             animate={{ y: [0, 12, 0] }}
             transition={{ duration: 1.5, repeat: Infinity }}
-            sx={{ width: '6px', height: '6px', borderRadius: '50%', bgcolor: colors.text.muted }}
+            sx={{
+              width: '6px',
+              height: '6px',
+              borderRadius: '50%',
+              bgcolor: colors.text.muted,
+            }}
           />
         </Box>
       </Box>
@@ -353,7 +495,10 @@ export function Hero() {
       {/* Beta Modal */}
       <BetaModal open={betaModalOpen} onClose={() => setBetaModalOpen(false)} />
       {/* Video Preview Modal */}
-      <VideoPreviewModal open={videoModalOpen} onClose={() => setVideoModalOpen(false)} />
+      <VideoPreviewModal
+        open={videoModalOpen}
+        onClose={() => setVideoModalOpen(false)}
+      />
     </Box>
   );
 }

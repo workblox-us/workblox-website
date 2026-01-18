@@ -1,532 +1,567 @@
-import { Box, Container, Typography } from '@mui/material';
-import { useState } from 'react';
-import { Extension } from '@mui/icons-material';
+import { TrendingUp } from '@mui/icons-material';
+import { Box, Button, Container, Typography } from '@mui/material';
 import { motion } from 'motion/react';
+import { useState } from 'react';
+
+import { useNavigation } from '../contexts/NavigationContext';
 import { useThemeColors } from '../hooks/useThemeColors';
 
 export function IntegrationsSection() {
   const colors = useThemeColors();
+  const { navigateTo } = useNavigation();
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-  const [clickedIndex, setClickedIndex] = useState<number | null>(null);
 
-  // Premium curated integration list - only 10 core apps
+  // Comprehensive integration list with real logos
   const integrations = [
-    { 
-      name: 'Slack', 
-      logo: 'https://cdn.worldvectorlogo.com/logos/slack-new-logo.svg',
-      category: 'Communication',
+    // Top row - evenly spaced
+    {
+      name: 'Figma',
+      logo: 'https://cdn.worldvectorlogo.com/logos/figma-5.svg',
+      x: 20,
+      y: 15,
     },
-    { 
-      name: 'Jira', 
+    {
+      name: 'Linear',
+      logo: 'https://asset.brandfetch.io/idAh6L0gOs/idwfP0bCjH.svg',
+      x: 35,
+      y: 12,
+    },
+    {
+      name: 'Jira',
       logo: 'https://cdn.worldvectorlogo.com/logos/jira-1.svg',
-      category: 'Project Management',
+      x: 50,
+      y: 10,
     },
-    { 
-      name: 'Asana', 
-      logo: 'https://cdn.worldvectorlogo.com/logos/asana-logo.svg',
-      category: 'Project Management',
+    {
+      name: 'Zoom',
+      logo: 'https://upload.wikimedia.org/wikipedia/commons/7/7b/Zoom_Communications_Logo.svg',
+      x: 65,
+      y: 12,
     },
-    { 
-      name: 'Monday.com', 
-      logo: 'https://cdn.worldvectorlogo.com/logos/monday-1.svg',
-      category: 'Project Management',
+    {
+      name: 'Airtable',
+      logo: 'https://cdn.worldvectorlogo.com/logos/airtable-1.svg',
+      x: 80,
+      y: 15,
     },
-    { 
-      name: 'ClickUp', 
-      logo: 'https://cdn.worldvectorlogo.com/logos/clickup.svg',
-      category: 'Project Management',
+
+    // Upper-middle row
+    {
+      name: 'Slack',
+      logo: 'https://cdn.worldvectorlogo.com/logos/slack-new-logo.svg',
+      x: 12,
+      y: 30,
     },
-    { 
-      name: 'GitHub', 
-      logo: 'https://cdn.worldvectorlogo.com/logos/github-icon-1.svg',
-      category: 'Development',
-    },
-    { 
-      name: 'Microsoft Teams', 
-      logo: 'https://upload.wikimedia.org/wikipedia/commons/c/c9/Microsoft_Office_Teams_%282018%E2%80%93present%29.svg',
-      category: 'Communication',
-    },
-    { 
-      name: 'Dropbox', 
+    {
+      name: 'Dropbox',
       logo: 'https://cdn.worldvectorlogo.com/logos/dropbox-1.svg',
-      category: 'Storage',
+      x: 25,
+      y: 28,
     },
-    { 
-      name: 'Google Workspace', 
-      logo: 'https://upload.wikimedia.org/wikipedia/commons/5/5f/Google_Workspace_Logo.svg',
-      category: 'Productivity',
+    {
+      name: 'Mailchimp',
+      logo: 'https://cdn.worldvectorlogo.com/logos/mailchimp-freddie-icon.svg',
+      x: 38,
+      y: 27,
     },
-    { 
-      name: 'Gmail', 
+    {
+      name: 'Trello',
+      logo: 'https://cdn.worldvectorlogo.com/logos/trello.svg',
+      x: 62,
+      y: 27,
+    },
+    {
+      name: 'Microsoft Teams',
+      logo: 'https://upload.wikimedia.org/wikipedia/commons/c/c9/Microsoft_Office_Teams_%282018%E2%80%93present%29.svg',
+      x: 75,
+      y: 28,
+    },
+    {
+      name: 'Stripe',
+      logo: 'https://cdn.worldvectorlogo.com/logos/stripe-4.svg',
+      x: 88,
+      y: 30,
+    },
+
+    // Middle row - left and right of center
+    {
+      name: 'Adobe Illustrator',
+      logo: 'https://upload.wikimedia.org/wikipedia/commons/f/fb/Adobe_Illustrator_CC_icon.svg',
+      x: 8,
+      y: 48,
+    },
+    {
+      name: 'WhatsApp',
+      logo: 'https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg',
+      x: 22,
+      y: 50,
+    },
+    {
+      name: 'Gmail',
       logo: 'https://upload.wikimedia.org/wikipedia/commons/7/7e/Gmail_icon_%282020%29.svg',
-      category: 'Email',
+      x: 35,
+      y: 52,
+    },
+    // Center space reserved for Workblox
+    {
+      name: 'Notion',
+      logo: 'https://upload.wikimedia.org/wikipedia/commons/4/45/Notion_app_logo.png',
+      x: 65,
+      y: 52,
+    },
+    {
+      name: 'Asana',
+      logo: 'https://cdn.worldvectorlogo.com/logos/asana-logo.svg',
+      x: 78,
+      y: 50,
+    },
+    {
+      name: 'Twilio',
+      logo: 'https://cdn.worldvectorlogo.com/logos/twilio.svg',
+      x: 92,
+      y: 48,
+    },
+
+    // Lower-middle row
+    {
+      name: 'Google Drive',
+      logo: 'https://upload.wikimedia.org/wikipedia/commons/1/12/Google_Drive_icon_%282020%29.svg',
+      x: 12,
+      y: 70,
+    },
+    {
+      name: 'ClickUp',
+      logo: 'https://cdn.worldvectorlogo.com/logos/clickup.svg',
+      x: 25,
+      y: 72,
+    },
+    {
+      name: 'HubSpot',
+      logo: 'https://cdn.worldvectorlogo.com/logos/hubspot.svg',
+      x: 38,
+      y: 73,
+    },
+    {
+      name: 'GitHub',
+      logo: 'https://cdn.worldvectorlogo.com/logos/github-icon-1.svg',
+      x: 62,
+      y: 73,
+    },
+    {
+      name: 'Shopify',
+      logo: 'https://cdn.worldvectorlogo.com/logos/shopify.svg',
+      x: 75,
+      y: 72,
+    },
+    {
+      name: 'Salesforce',
+      logo: 'https://cdn.worldvectorlogo.com/logos/salesforce-2.svg',
+      x: 88,
+      y: 70,
+    },
+
+    // Bottom row - evenly spaced
+    {
+      name: 'Intercom',
+      logo: 'https://cdn.worldvectorlogo.com/logos/intercom-1.svg',
+      x: 20,
+      y: 85,
+    },
+    {
+      name: 'Monday.com',
+      logo: 'https://cdn.worldvectorlogo.com/logos/monday-1.svg',
+      x: 35,
+      y: 88,
+    },
+    {
+      name: 'Zapier',
+      logo: 'https://cdn.worldvectorlogo.com/logos/zapier.svg',
+      x: 50,
+      y: 90,
+    },
+    {
+      name: 'Google Workspace',
+      logo: 'https://upload.wikimedia.org/wikipedia/commons/5/5f/Google_Workspace_Logo.svg',
+      x: 65,
+      y: 88,
+    },
+    {
+      name: 'Microsoft Teams',
+      logo: 'https://upload.wikimedia.org/wikipedia/commons/c/c9/Microsoft_Office_Teams_%282018%E2%80%93present%29.svg',
+      x: 80,
+      y: 85,
     },
   ];
 
-  const radius = 320;
-
-  const handleAppClick = (index: number) => {
-    setClickedIndex(index);
-    setTimeout(() => setClickedIndex(null), 1000);
-  };
-
   return (
-    <Box 
-      component="section" 
-      id="integrations" 
-      sx={{ 
-        position: 'relative', 
-        py: { xs: 12, md: 20 }, 
+    <Box
+      component='section'
+      id='integrations'
+      sx={{
+        position: 'relative',
+        py: { xs: 12, md: 20 },
         overflow: 'hidden',
-        bgcolor: colors.isDark ? '#000000' : '#fafafa',
+        bgcolor: colors.bg.primary,
+        background: colors.isDark
+          ? 'radial-gradient(ellipse at center top, rgba(59, 130, 246, 0.05) 0%, #000000 50%)'
+          : 'radial-gradient(ellipse at center top, rgba(139, 92, 246, 0.04) 0%, #ffffff 50%)',
       }}
     >
-      {/* Ultra-clean gradient background */}
-      <Box 
-        sx={{ 
-          position: 'absolute', 
-          inset: 0, 
-          background: colors.isDark 
-            ? 'radial-gradient(ellipse at center, rgba(124, 58, 237, 0.08) 0%, rgba(0, 0, 0, 0) 60%)'
-            : 'radial-gradient(ellipse at center, rgba(124, 58, 237, 0.04) 0%, rgba(250, 250, 250, 0) 60%)',
-        }} 
-      />
-
-      <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 10 }}>
-        {/* Minimal Section Header */}
-        <Box sx={{ textAlign: 'center', mb: { xs: 10, md: 16 }, maxWidth: '600px', mx: 'auto' }}>
-          <Box
-            sx={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: 1,
-              px: 1.5,
-              py: 0.75,
-              borderRadius: '50px',
-              bgcolor: colors.badge.bg,
-              border: `1px solid ${colors.border.accent}`,
-              backdropFilter: 'blur(8px)',
-              mb: 1.5,
-            }}
+      <Container maxWidth='lg' sx={{ position: 'relative', zIndex: 10 }}>
+        {/* Header */}
+        <Box sx={{ textAlign: 'center', mb: { xs: 8, md: 12 } }}>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
           >
-            <Typography variant="caption" sx={{ color: colors.badge.text }}>
-              Integrations
-            </Typography>
-          </Box>
-          <Typography 
-            variant="h2" 
-            sx={{ 
-              fontSize: { xs: '2.25rem', md: '3rem' }, 
-              color: colors.text.primary, 
-              mb: 1.5, 
-              fontWeight: 700,
-            }}
-          >
-            Everything connects
-            <br />
-            <Box component="span" sx={{ background: 'linear-gradient(90deg, #c084fc 0%, #60a5fa 50%, #22d3ee 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
-              through Workblox
+            {/* Pill Badge */}
+            <Box
+              sx={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: 1,
+                px: 2.5,
+                py: 1,
+                borderRadius: '50px',
+                bgcolor: colors.badge.bg,
+                border: `1px solid ${colors.border.accent}`,
+                backdropFilter: 'blur(12px)',
+                mb: 3,
+              }}
+            >
+              <TrendingUp
+                sx={{ fontSize: '0.875rem', color: colors.badge.text }}
+              />
+              <Typography
+                variant='caption'
+                sx={{
+                  color: colors.badge.text,
+                  fontSize: '0.75rem',
+                  fontWeight: 600,
+                }}
+              >
+                Integrations
+              </Typography>
             </Box>
-          </Typography>
-          <Typography 
-            variant="body1" 
-            sx={{ 
-              color: colors.text.secondary, 
-              maxWidth: '32rem', 
-              mx: 'auto',
-              fontSize: '0.875rem',
-            }}
-          >
-            Seamlessly connect with the tools your team already uses. A unified hub for your entire workflow.
-          </Typography>
-        </Box>
 
-        {/* Premium Integration Ecosystem - Desktop */}
-        <Box 
-          sx={{ 
-            display: { xs: 'none', md: 'flex' },
-            position: 'relative',
-            alignItems: 'center',
-            justifyContent: 'center',
-            minHeight: '800px',
-            mb: 12
-          }}
-        >
-          {/* SVG for elegant connection lines */}
+            {/* Headline */}
+            <Typography
+              variant='h2'
+              sx={{
+                fontSize: { xs: '2.25rem', md: '3rem' },
+                color: colors.text.primary,
+                mb: 3,
+                fontWeight: 700,
+                letterSpacing: '-0.02em',
+              }}
+            >
+              Connect The Tools{' '}
+              <Box
+                component='span'
+                sx={{
+                  background:
+                    'linear-gradient(90deg, #9333ea 0%, #3b82f6 100%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                }}
+              >
+                You Already Use
+              </Box>
+            </Typography>
+
+            {/* Subheader */}
+            <Typography
+              variant='h6'
+              sx={{
+                fontSize: { xs: '1.0625rem', md: '1.125rem' },
+                color: colors.text.secondary,
+                maxWidth: '48rem',
+                mx: 'auto',
+                mb: 8,
+                lineHeight: 1.7,
+              }}
+            >
+              Workblox pulls context from email, calendar, chat, docs, and
+              project tools so work stays connected.
+            </Typography>
+          </motion.div>
+
+          {/* Integration Grid - Desktop */}
           <Box
-            component="svg"
             sx={{
-              position: 'absolute',
-              inset: 0,
+              display: { xs: 'none', md: 'block' },
+              position: 'relative',
               width: '100%',
-              height: '100%',
-              pointerEvents: 'none',
-              zIndex: 1,
+              height: '600px',
+              mb: 8,
             }}
           >
-            <defs>
-              {/* Premium gradient for connection lines */}
-              <linearGradient id="lineGradientPremium" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor={colors.isDark ? "rgba(124, 58, 237, 0.4)" : "rgba(124, 58, 237, 0.3)"} />
-                <stop offset="100%" stopColor={colors.isDark ? "rgba(168, 85, 247, 0.2)" : "rgba(168, 85, 247, 0.15)"} />
-              </linearGradient>
-              
-              {/* Glow filter */}
-              <filter id="glow">
-                <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-                <feMerge>
-                  <feMergeNode in="coloredBlur"/>
-                  <feMergeNode in="SourceGraphic"/>
-                </feMerge>
-              </filter>
-            </defs>
-
-            {/* Thin elegant connection lines with pulse animation */}
-            {integrations.map((integration, index) => {
-              const angle = (index / integrations.length) * 2 * Math.PI - Math.PI / 2;
-              const x2 = `calc(50% + ${Math.cos(angle) * radius}px)`;
-              const y2 = `calc(50% + ${Math.sin(angle) * radius}px)`;
-              const isHovered = hoveredIndex === index;
-              const isClicked = clickedIndex === index;
-
-              return (
-                <g key={`connection-${index}`}>
-                  {/* Base line */}
+            {/* SVG Connection Lines */}
+            <Box
+              component='svg'
+              sx={{
+                position: 'absolute',
+                inset: 0,
+                width: '100%',
+                height: '100%',
+                pointerEvents: 'none',
+                zIndex: 1,
+              }}
+            >
+              {/* Draw connection lines to center */}
+              {[0, 3, 4, 6, 9, 13, 16, 18].map((index) => {
+                const integration = integrations[index];
+                return (
                   <line
-                    x1="50%"
-                    y1="50%"
-                    x2={x2}
-                    y2={y2}
-                    stroke={isHovered ? (colors.isDark ? 'rgba(168, 85, 247, 0.6)' : 'rgba(124, 58, 237, 0.5)') : 'url(#lineGradientPremium)'}
-                    strokeWidth={isHovered ? '1.5' : '1'}
-                    opacity={isHovered ? 1 : 0.4}
-                    style={{
-                      transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
-                    }}
+                    key={`line-${index}`}
+                    x1='50%'
+                    y1='50%'
+                    x2={`${integration.x}%`}
+                    y2={`${integration.y}%`}
+                    stroke='rgba(59, 130, 246, 0.2)'
+                    strokeWidth='1'
+                    opacity='0.3'
                   />
-                  
-                  {/* Pulsing data stream on hover */}
-                  {isHovered && (
-                    <>
-                      <circle r="3" fill={colors.isDark ? '#a78bfa' : '#7c3aed'} opacity="0.8">
-                        <animateMotion
-                          dur="1.5s"
-                          repeatCount="indefinite"
-                          path={`M 0 0 L ${Math.cos(angle) * radius} ${Math.sin(angle) * radius}`}
-                        />
-                      </circle>
-                      <circle r="3" fill={colors.isDark ? '#a78bfa' : '#7c3aed'} opacity="0.5">
-                        <animateMotion
-                          dur="1.5s"
-                          repeatCount="indefinite"
-                          begin="0.5s"
-                          path={`M 0 0 L ${Math.cos(angle) * radius} ${Math.sin(angle) * radius}`}
-                        />
-                      </circle>
-                    </>
-                  )}
+                );
+              })}
+            </Box>
 
-                  {/* Ripple effect on click */}
-                  {isClicked && (
-                    <circle 
-                      cx={x2} 
-                      cy={y2} 
-                      r="0" 
-                      fill="none" 
-                      stroke={colors.isDark ? '#a78bfa' : '#7c3aed'}
-                      strokeWidth="2"
-                    >
-                      <animate
-                        attributeName="r"
-                        from="0"
-                        to="50"
-                        dur="1s"
-                        begin="0s"
-                      />
-                      <animate
-                        attributeName="opacity"
-                        from="1"
-                        to="0"
-                        dur="1s"
-                        begin="0s"
-                      />
-                    </circle>
-                  )}
-                </g>
-              );
-            })}
-          </Box>
-
-          {/* Central Workblox Hub - Premium "Breathing" Effect */}
-          <Box
-            sx={{
-              position: 'absolute',
-              left: '50%',
-              top: '50%',
-              transform: 'translate(-50%, -50%)',
-              zIndex: 20,
-            }}
-          >
+            {/* Central Workblox Hub */}
             <Box
               component={motion.div}
               animate={{
-                scale: [1, 1.03, 1],
+                boxShadow: [
+                  '0 0 40px rgba(59, 130, 246, 0.4), 0 0 80px rgba(59, 130, 246, 0.2)',
+                  '0 0 60px rgba(59, 130, 246, 0.6), 0 0 100px rgba(59, 130, 246, 0.3)',
+                  '0 0 40px rgba(59, 130, 246, 0.4), 0 0 80px rgba(59, 130, 246, 0.2)',
+                ],
               }}
               transition={{
-                duration: 4,
+                duration: 3,
                 repeat: Infinity,
-                ease: "easeInOut",
+                ease: 'easeInOut',
               }}
               sx={{
-                position: 'relative',
-                width: 160,
-                height: 160,
-                borderRadius: '50%',
-                background: colors.isDark 
-                  ? 'linear-gradient(135deg, rgba(124, 58, 237, 0.15), rgba(168, 85, 247, 0.1))'
-                  : 'linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(250, 250, 250, 0.9))',
-                border: colors.isDark ? '1px solid rgba(168, 85, 247, 0.2)' : '1px solid rgba(124, 58, 237, 0.15)',
+                position: 'absolute',
+                left: '50%',
+                top: '50%',
+                transform: 'translate(-50%, -50%)',
+                width: { xs: 120, md: 160 },
+                height: { xs: 120, md: 160 },
+                borderRadius: '24px',
+                background: colors.isDark
+                  ? 'rgba(10, 10, 20, 0.9)'
+                  : 'linear-gradient(135deg, rgba(139, 92, 246, 0.08), rgba(59, 130, 246, 0.08))',
+                border: colors.isDark
+                  ? '1px solid rgba(59, 130, 246, 0.5)'
+                  : '1px solid rgba(139, 92, 246, 0.25)',
+                backdropFilter: 'blur(20px)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                boxShadow: colors.isDark 
-                  ? '0 0 60px rgba(124, 58, 237, 0.2), 0 20px 60px rgba(0, 0, 0, 0.3)'
-                  : '0 0 40px rgba(124, 58, 237, 0.08), 0 20px 60px rgba(0, 0, 0, 0.08)',
-                backdropFilter: 'blur(20px)',
-                transition: 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)',
+                zIndex: 30,
               }}
             >
-              {/* Subtle outer glow ring */}
-              <Box
-                component={motion.div}
-                animate={{
-                  opacity: [0.3, 0.6, 0.3],
-                  scale: [1, 1.1, 1],
-                }}
-                transition={{
-                  duration: 4,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
+              <TrendingUp
                 sx={{
-                  position: 'absolute',
-                  inset: -30,
-                  borderRadius: '50%',
-                  background: colors.isDark 
-                    ? 'radial-gradient(circle, rgba(168, 85, 247, 0.2), transparent 70%)'
-                    : 'radial-gradient(circle, rgba(124, 58, 237, 0.1), transparent 70%)',
-                  pointerEvents: 'none',
+                  fontSize: { xs: '3rem', md: '4rem' },
+                  color: colors.isDark ? '#ffffff' : '#6366f1',
+                  filter: colors.isDark
+                    ? 'drop-shadow(0 0 10px rgba(255, 255, 255, 0.5))'
+                    : 'drop-shadow(0 0 8px rgba(99, 102, 241, 0.3))',
                 }}
               />
-              
-              {/* Center content */}
-              <Box sx={{ textAlign: 'center', zIndex: 1 }}>
-                <Extension 
-                  sx={{ 
-                    fontSize: '3.5rem', 
-                    color: colors.isDark ? '#a78bfa' : '#7c3aed',
-                    filter: colors.isDark ? 'drop-shadow(0 0 20px rgba(168, 85, 247, 0.4))' : 'none',
-                    mb: 0.5,
-                  }} 
-                />
-                <Typography 
-                  variant="h6" 
-                  sx={{ 
-                    color: colors.text.primary, 
-                    fontWeight: 500,
-                    fontSize: '1rem',
-                    letterSpacing: '-0.01em'
-                  }}
-                >
-                  Workblox
-                </Typography>
-              </Box>
             </Box>
-          </Box>
 
-          {/* Orbiting Integration Icons - Smooth Floating */}
-          {integrations.map((integration, index) => {
-            const angle = (index / integrations.length) * 2 * Math.PI - Math.PI / 2;
-            const baseX = Math.cos(angle) * radius;
-            const baseY = Math.sin(angle) * radius;
-            const isHovered = hoveredIndex === index;
-
-            return (
+            {/* Integration Icons - Scattered Layout */}
+            {integrations.map((integration, index) => (
               <Box
-                key={integration.name}
+                key={`${integration.name}-${index}`}
                 component={motion.div}
-                animate={{
-                  x: [baseX - 5, baseX + 5, baseX - 5],
-                  y: [baseY - 5, baseY + 5, baseY - 5],
-                }}
-                transition={{
-                  duration: 6 + index * 0.3,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, delay: index * 0.05 }}
+                whileHover={{ scale: 1.15 }}
                 sx={{
                   position: 'absolute',
-                  left: '50%',
-                  top: '50%',
+                  left: `${integration.x}%`,
+                  top: `${integration.y}%`,
                   transform: 'translate(-50%, -50%)',
-                  zIndex: 10,
+                  width: { xs: 50, md: 70 },
+                  height: { xs: 50, md: 70 },
+                  borderRadius: '16px',
+                  background: colors.isDark
+                    ? 'rgba(30, 30, 40, 0.8)'
+                    : 'rgba(248, 250, 252, 0.95)',
+                  border: colors.isDark
+                    ? '1px solid rgba(255, 255, 255, 0.1)'
+                    : '1px solid rgba(15, 23, 42, 0.12)',
+                  backdropFilter: 'blur(10px)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  p: 1.5,
+                  cursor: 'pointer',
+                  zIndex: 20,
+                  transition: 'all 0.3s ease',
+                  '&:hover': {
+                    background: colors.isDark
+                      ? 'rgba(40, 40, 50, 0.9)'
+                      : 'rgba(255, 255, 255, 1)',
+                    border: '1px solid rgba(147, 51, 234, 0.5)',
+                    boxShadow: '0 8px 32px rgba(147, 51, 234, 0.3)',
+                  },
                 }}
                 onMouseEnter={() => setHoveredIndex(index)}
                 onMouseLeave={() => setHoveredIndex(null)}
-                onClick={() => handleAppClick(index)}
               >
                 <Box
-                  component={motion.div}
-                  whileHover={{ 
-                    scale: 1.15,
-                    transition: { duration: 0.3, ease: [0.4, 0, 0.2, 1] }
-                  }}
-                  whileTap={{ scale: 0.95 }}
+                  component='img'
+                  src={integration.logo}
+                  alt={integration.name}
                   sx={{
-                    position: 'relative',
-                    width: 80,
-                    height: 80,
-                    borderRadius: '20px',
-                    bgcolor: colors.isDark ? 'rgba(255, 255, 255, 0.04)' : 'rgba(255, 255, 255, 0.9)',
-                    border: colors.isDark ? '1px solid rgba(255, 255, 255, 0.08)' : '1px solid rgba(0, 0, 0, 0.06)',
-                    backdropFilter: 'blur(20px)',
+                    width: '65%',
+                    height: '65%',
+                    objectFit: 'contain',
+                    filter:
+                      hoveredIndex === index
+                        ? 'brightness(1.2)'
+                        : colors.isDark
+                        ? 'brightness(0.9)'
+                        : 'brightness(1)',
+                    transition: 'filter 0.3s ease',
+                  }}
+                />
+              </Box>
+            ))}
+          </Box>
+
+          {/* Mobile Grid */}
+          <Box
+            sx={{
+              display: { xs: 'grid', md: 'none' },
+              gridTemplateColumns: 'repeat(3, 1fr)',
+              gap: 2,
+              mb: 8,
+              maxWidth: '400px',
+              mx: 'auto',
+            }}
+          >
+            {/* Central Workblox Card for Mobile */}
+            <Box
+              sx={{
+                gridColumn: '2 / 3',
+                gridRow: '2 / 3',
+                aspectRatio: '1',
+                borderRadius: '16px',
+                background: colors.isDark
+                  ? 'rgba(10, 10, 20, 0.9)'
+                  : 'linear-gradient(135deg, rgba(139, 92, 246, 0.08), rgba(59, 130, 246, 0.08))',
+                border: colors.isDark
+                  ? '1px solid rgba(59, 130, 246, 0.5)'
+                  : '1px solid rgba(139, 92, 246, 0.25)',
+                boxShadow: colors.isDark
+                  ? '0 0 30px rgba(59, 130, 246, 0.4)'
+                  : '0 0 20px rgba(139, 92, 246, 0.2)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}
+            >
+              <TrendingUp
+                sx={{
+                  fontSize: '2.5rem',
+                  color: colors.isDark ? '#ffffff' : '#6366f1',
+                }}
+              />
+            </Box>
+
+            {/* Mobile Integration Icons */}
+            {integrations.slice(0, 8).map((integration, index) => {
+              // Skip the center position on mobile
+              if (index === 4) return null;
+
+              return (
+                <Box
+                  key={`mobile-${integration.name}-${index}`}
+                  sx={{
+                    aspectRatio: '1',
+                    borderRadius: '12px',
+                    background: colors.isDark
+                      ? 'rgba(30, 30, 40, 0.8)'
+                      : 'rgba(248, 250, 252, 0.95)',
+                    border: colors.isDark
+                      ? '1px solid rgba(255, 255, 255, 0.1)'
+                      : '1px solid rgba(15, 23, 42, 0.12)',
+                    backdropFilter: 'blur(10px)',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
                     p: 2,
-                    cursor: 'pointer',
-                    boxShadow: isHovered
-                      ? colors.isDark 
-                        ? '0 20px 50px rgba(168, 85, 247, 0.3), 0 0 30px rgba(168, 85, 247, 0.2)'
-                        : '0 20px 50px rgba(124, 58, 237, 0.15), 0 0 30px rgba(124, 58, 237, 0.1)'
-                      : colors.isDark 
-                        ? '0 8px 24px rgba(0, 0, 0, 0.3)'
-                        : '0 8px 24px rgba(0, 0, 0, 0.04)',
-                    transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
                   }}
                 >
-                  {/* Logo */}
                   <Box
-                    component="img"
+                    component='img'
                     src={integration.logo}
                     alt={integration.name}
                     sx={{
-                      width: '55%',
-                      height: '55%',
+                      width: '60%',
+                      height: '60%',
                       objectFit: 'contain',
-                      filter: isHovered ? 'brightness(1.1)' : 'brightness(1)',
-                      transition: 'filter 0.3s ease',
+                      filter: colors.isDark
+                        ? 'brightness(0.9)'
+                        : 'brightness(1)',
                     }}
                   />
-
-                  {/* Premium tooltip on hover */}
-                  <Box
-                    component={motion.div}
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ 
-                      opacity: isHovered ? 1 : 0, 
-                      y: isHovered ? 0 : 10 
-                    }}
-                    transition={{ duration: 0.2 }}
-                    sx={{
-                      position: 'absolute',
-                      bottom: -55,
-                      left: '50%',
-                      transform: 'translateX(-50%)',
-                      whiteSpace: 'nowrap',
-                      bgcolor: colors.isDark ? 'rgba(0, 0, 0, 0.9)' : 'rgba(255, 255, 255, 0.95)',
-                      px: 2,
-                      py: 1,
-                      borderRadius: '8px',
-                      color: colors.text.primary,
-                      fontSize: '0.8125rem',
-                      fontWeight: 500,
-                      border: colors.isDark ? '1px solid rgba(255, 255, 255, 0.1)' : '1px solid rgba(0, 0, 0, 0.08)',
-                      boxShadow: colors.isDark 
-                        ? '0 10px 30px rgba(0, 0, 0, 0.5)'
-                        : '0 10px 30px rgba(0, 0, 0, 0.1)',
-                      pointerEvents: 'none',
-                      zIndex: 100,
-                      backdropFilter: 'blur(10px)',
-                    }}
-                  >
-                    {integration.name}
-                    <Box
-                      component="span"
-                      sx={{
-                        display: 'block',
-                        fontSize: '0.6875rem',
-                        color: colors.text.muted,
-                        mt: 0.25,
-                        opacity: 0.7,
-                      }}
-                    >
-                      Connected via Workblox
-                    </Box>
-                  </Box>
                 </Box>
-              </Box>
-            );
-          })}
+              );
+            })}
+          </Box>
+
+          {/* CTA Button */}
+          <Button
+            variant='contained'
+            sx={{
+              mt: 4,
+              px: 4,
+              py: 1.5,
+              fontSize: '1rem',
+              fontWeight: 500,
+              borderRadius: '8px',
+              background: 'linear-gradient(90deg, #9333ea 0%, #3b82f6 100%)',
+              color: '#ffffff',
+              textTransform: 'none',
+              boxShadow: '0 4px 20px rgba(147, 51, 234, 0.4)',
+              transition: 'all 0.3s ease',
+              '&:hover': {
+                background: 'linear-gradient(90deg, #a855f7 0%, #60a5fa 100%)',
+                boxShadow: '0 6px 30px rgba(147, 51, 234, 0.6)',
+                transform: 'translateY(-2px)',
+              },
+            }}
+            onClick={() => navigateTo('integrations')}
+          >
+            Explore all integrations
+          </Button>
         </Box>
 
-        {/* Mobile Grid - Clean & Minimal */}
-        <Box 
-          sx={{ 
-            display: { xs: 'grid', md: 'none' },
-            gridTemplateColumns: 'repeat(2, 1fr)',
-            gap: 2,
-            mb: 8,
-            maxWidth: '400px',
-            mx: 'auto',
-          }}
-        >
-          {integrations.map((integration, index) => (
-            <Box
-              key={integration.name}
-              sx={{
-                position: 'relative',
-                aspectRatio: '1',
-                borderRadius: '16px',
-                bgcolor: colors.isDark ? 'rgba(255, 255, 255, 0.04)' : 'rgba(255, 255, 255, 0.9)',
-                border: colors.isDark ? '1px solid rgba(255, 255, 255, 0.08)' : '1px solid rgba(0, 0, 0, 0.06)',
-                backdropFilter: 'blur(8px)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                p: 3,
-                boxShadow: colors.isDark ? '0 4px 16px rgba(0, 0, 0, 0.3)' : '0 4px 16px rgba(0, 0, 0, 0.04)',
-              }}
-            >
-              <Box
-                component="img"
-                src={integration.logo}
-                alt={integration.name}
-                sx={{
-                  width: '50%',
-                  height: '50%',
-                  objectFit: 'contain',
-                }}
-              />
-            </Box>
-          ))}
-        </Box>
-
-        {/* Premium Stats - Minimal & Clean */}
+        {/* Stats Section */}
         <Box
-          sx={{ 
-            display: 'grid', 
+          sx={{
+            display: 'grid',
             gridTemplateColumns: { xs: '1fr', sm: 'repeat(3, 1fr)' },
-            gap: 3, 
-            maxWidth: '800px', 
-            mx: 'auto', 
-            mt: { xs: 10, md: 0 }
+            gap: 3,
+            maxWidth: '800px',
+            mx: 'auto',
+            mt: { xs: 10, md: 12 },
           }}
         >
           {[
             { value: '100+', label: 'Integrations' },
             { value: '99.9%', label: 'Uptime SLA' },
-            { value: 'Real-time', label: 'Data Sync' }
+            { value: 'Real-time', label: 'Data Sync' },
           ].map((stat) => (
             <Box
               key={stat.label}
@@ -534,21 +569,29 @@ export function IntegrationsSection() {
                 textAlign: 'center',
                 p: 3.5,
                 borderRadius: '16px',
-                bgcolor: colors.isDark ? 'rgba(255, 255, 255, 0.02)' : 'rgba(255, 255, 255, 0.6)',
-                border: colors.isDark ? '1px solid rgba(255, 255, 255, 0.05)' : '1px solid rgba(0, 0, 0, 0.05)',
+                bgcolor: colors.isDark
+                  ? 'rgba(255, 255, 255, 0.02)'
+                  : 'rgba(139, 92, 246, 0.04)',
+                border: colors.isDark
+                  ? '1px solid rgba(255, 255, 255, 0.05)'
+                  : '1px solid rgba(139, 92, 246, 0.1)',
                 backdropFilter: 'blur(10px)',
                 transition: 'all 0.3s ease',
                 '&:hover': {
-                  bgcolor: colors.isDark ? 'rgba(255, 255, 255, 0.04)' : 'rgba(255, 255, 255, 0.8)',
+                  bgcolor: colors.isDark
+                    ? 'rgba(255, 255, 255, 0.04)'
+                    : 'rgba(139, 92, 246, 0.08)',
                   transform: 'translateY(-2px)',
                 },
               }}
             >
-              <Typography 
-                variant="h4" 
-                sx={{ 
-                  fontSize: '1.75rem', 
-                  color: colors.text.primary, 
+              <Typography
+                variant='h4'
+                sx={{
+                  fontSize: '1.75rem',
+                  color: colors.isDark
+                    ? 'rgba(255, 255, 255, 0.95)'
+                    : colors.text.primary,
                   mb: 0.5,
                   fontWeight: 500,
                   letterSpacing: '-0.02em',
@@ -556,10 +599,12 @@ export function IntegrationsSection() {
               >
                 {stat.value}
               </Typography>
-              <Typography 
-                variant="caption" 
-                sx={{ 
-                  color: colors.text.secondary, 
+              <Typography
+                variant='caption'
+                sx={{
+                  color: colors.isDark
+                    ? 'rgba(255, 255, 255, 0.6)'
+                    : colors.text.secondary,
                   fontSize: '0.8125rem',
                   letterSpacing: '0.02em',
                 }}
