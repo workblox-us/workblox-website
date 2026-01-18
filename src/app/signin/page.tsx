@@ -207,7 +207,7 @@ export default function SignInPage({
           <IconButton
             onClick={onBack}
             sx={{
-              color: colors.text,
+              color: colors.text.primary,
               bgcolor: colors.isDark
                 ? 'rgba(255, 255, 255, 0.05)'
                 : 'rgba(0, 0, 0, 0.05)',
@@ -270,7 +270,7 @@ export default function SignInPage({
                 <Typography
                   variant='h4'
                   sx={{
-                    color: colors.text,
+                    color: colors.text.primary,
                     fontWeight: 700,
                     mb: 1,
                     fontSize: '2rem',
@@ -279,7 +279,11 @@ export default function SignInPage({
                   Welcome back
                 </Typography>
                 <Typography
-                  sx={{ color: colors.textSecondary, mb: 4, fontSize: '1rem' }}
+                  sx={{
+                    color: colors.text.secondary,
+                    mb: 4,
+                    fontSize: '1rem',
+                  }}
                 >
                   Sign in to your workspace
                 </Typography>
@@ -288,7 +292,7 @@ export default function SignInPage({
                   <Box sx={{ mb: 3 }}>
                     <Typography
                       sx={{
-                        color: colors.text,
+                        color: colors.text.primary,
                         fontSize: '0.875rem',
                         fontWeight: 600,
                         mb: 1.5,
@@ -309,7 +313,7 @@ export default function SignInPage({
                             ? 'rgba(255, 255, 255, 0.05)'
                             : 'rgba(255, 255, 255, 0.8)',
                           borderRadius: '12px',
-                          color: colors.text,
+                          color: colors.text.primary,
                           '& fieldset': {
                             borderColor: colors.isDark
                               ? 'rgba(255, 255, 255, 0.1)'
@@ -325,7 +329,7 @@ export default function SignInPage({
                           },
                         },
                         '& .MuiOutlinedInput-input::placeholder': {
-                          color: colors.textSecondary,
+                          color: colors.text.secondary,
                           opacity: 0.6,
                         },
                       }}
@@ -335,7 +339,7 @@ export default function SignInPage({
                   <Box sx={{ mb: 2 }}>
                     <Typography
                       sx={{
-                        color: colors.text,
+                        color: colors.text.primary,
                         fontSize: '0.875rem',
                         fontWeight: 600,
                         mb: 1.5,
@@ -358,7 +362,7 @@ export default function SignInPage({
                             }
                             edge='end'
                             size='small'
-                            sx={{ color: colors.textSecondary }}
+                            sx={{ color: colors.text.secondary }}
                           >
                             {showLoginPassword ? (
                               <VisibilityOff />
@@ -374,7 +378,7 @@ export default function SignInPage({
                             ? 'rgba(255, 255, 255, 0.05)'
                             : 'rgba(255, 255, 255, 0.8)',
                           borderRadius: '12px',
-                          color: colors.text,
+                          color: colors.text.primary,
                           '& fieldset': {
                             borderColor: colors.isDark
                               ? 'rgba(255, 255, 255, 0.1)'
@@ -442,7 +446,7 @@ export default function SignInPage({
                   <Box sx={{ textAlign: 'center' }}>
                     <Typography
                       sx={{
-                        color: colors.textSecondary,
+                        color: colors.text.secondary,
                         fontSize: '0.9375rem',
                       }}
                     >
@@ -480,7 +484,7 @@ export default function SignInPage({
                 <Typography
                   variant='h4'
                   sx={{
-                    color: colors.text,
+                    color: colors.text.primary,
                     fontWeight: 700,
                     mb: 1,
                     fontSize: '2rem',
@@ -489,7 +493,11 @@ export default function SignInPage({
                   Reset Password
                 </Typography>
                 <Typography
-                  sx={{ color: colors.textSecondary, mb: 4, fontSize: '1rem' }}
+                  sx={{
+                    color: colors.text.secondary,
+                    mb: 4,
+                    fontSize: '1rem',
+                  }}
                 >
                   Enter your email to receive a verification code
                 </Typography>
@@ -498,7 +506,7 @@ export default function SignInPage({
                   <Box sx={{ mb: 4 }}>
                     <Typography
                       sx={{
-                        color: colors.text,
+                        color: colors.text.primary,
                         fontSize: '0.875rem',
                         fontWeight: 600,
                         mb: 1.5,
@@ -519,7 +527,7 @@ export default function SignInPage({
                             ? 'rgba(255, 255, 255, 0.05)'
                             : 'rgba(255, 255, 255, 0.8)',
                           borderRadius: '12px',
-                          color: colors.text,
+                          color: colors.text.primary,
                           '& fieldset': {
                             borderColor: colors.isDark
                               ? 'rgba(255, 255, 255, 0.1)'
@@ -535,7 +543,7 @@ export default function SignInPage({
                           },
                         },
                         '& .MuiOutlinedInput-input::placeholder': {
-                          color: colors.textSecondary,
+                          color: colors.text.secondary,
                           opacity: 0.6,
                         },
                       }}
@@ -572,7 +580,7 @@ export default function SignInPage({
                   <Box sx={{ textAlign: 'center' }}>
                     <Typography
                       sx={{
-                        color: colors.textSecondary,
+                        color: colors.text.secondary,
                         fontSize: '0.9375rem',
                       }}
                     >
@@ -610,7 +618,7 @@ export default function SignInPage({
                 <Typography
                   variant='h4'
                   sx={{
-                    color: colors.text,
+                    color: colors.text.primary,
                     fontWeight: 700,
                     mb: 1,
                     fontSize: '2rem',
@@ -619,7 +627,11 @@ export default function SignInPage({
                   Verify Your Email
                 </Typography>
                 <Typography
-                  sx={{ color: colors.textSecondary, mb: 1, fontSize: '1rem' }}
+                  sx={{
+                    color: colors.text.secondary,
+                    mb: 1,
+                    fontSize: '1rem',
+                  }}
                 >
                   We sent a code to
                 </Typography>
@@ -637,7 +649,7 @@ export default function SignInPage({
                 <Box component='form' onSubmit={handleResetVerificationSubmit}>
                   <Typography
                     sx={{
-                      color: colors.text,
+                      color: colors.text.primary,
                       fontSize: '0.875rem',
                       fontWeight: 600,
                       mb: 2,
@@ -662,7 +674,7 @@ export default function SignInPage({
                             textAlign: 'center',
                             fontSize: '1.75rem',
                             fontWeight: 700,
-                            color: colors.text,
+                            color: colors.text.primary,
                           },
                         }}
                         sx={{
@@ -700,7 +712,7 @@ export default function SignInPage({
                   <Box sx={{ textAlign: 'center', mb: 4 }}>
                     <Typography
                       sx={{
-                        color: colors.textSecondary,
+                        color: colors.text.secondary,
                         fontSize: '0.875rem',
                         mb: 1,
                       }}
@@ -751,7 +763,7 @@ export default function SignInPage({
                         background: colors.isDark
                           ? 'rgba(255, 255, 255, 0.1)'
                           : 'rgba(0, 0, 0, 0.1)',
-                        color: colors.textSecondary,
+                        color: colors.text.secondary,
                         boxShadow: 'none',
                       },
                     }}
@@ -793,7 +805,7 @@ export default function SignInPage({
                 <Typography
                   variant='h4'
                   sx={{
-                    color: colors.text,
+                    color: colors.text.primary,
                     fontWeight: 700,
                     mb: 1,
                     fontSize: '2rem',
@@ -802,7 +814,11 @@ export default function SignInPage({
                   Create New Password
                 </Typography>
                 <Typography
-                  sx={{ color: colors.textSecondary, mb: 4, fontSize: '1rem' }}
+                  sx={{
+                    color: colors.text.secondary,
+                    mb: 4,
+                    fontSize: '1rem',
+                  }}
                 >
                   Choose a strong password for your account
                 </Typography>
@@ -811,7 +827,7 @@ export default function SignInPage({
                   <Box sx={{ mb: 3 }}>
                     <Typography
                       sx={{
-                        color: colors.text,
+                        color: colors.text.primary,
                         fontSize: '0.875rem',
                         fontWeight: 600,
                         mb: 1.5,
@@ -832,7 +848,7 @@ export default function SignInPage({
                             onClick={() => setShowNewPassword(!showNewPassword)}
                             edge='end'
                             size='small'
-                            sx={{ color: colors.textSecondary }}
+                            sx={{ color: colors.text.secondary }}
                           >
                             {showNewPassword ? (
                               <VisibilityOff />
@@ -848,7 +864,7 @@ export default function SignInPage({
                             ? 'rgba(255, 255, 255, 0.05)'
                             : 'rgba(255, 255, 255, 0.8)',
                           borderRadius: '12px',
-                          color: colors.text,
+                          color: colors.text.primary,
                           '& fieldset': {
                             borderColor: colors.isDark
                               ? 'rgba(255, 255, 255, 0.1)'
@@ -867,7 +883,7 @@ export default function SignInPage({
                     />
                     <Typography
                       sx={{
-                        color: colors.textSecondary,
+                        color: colors.text.secondary,
                         fontSize: '0.8125rem',
                         mt: 1.5,
                       }}
@@ -879,7 +895,7 @@ export default function SignInPage({
                   <Box sx={{ mb: 4 }}>
                     <Typography
                       sx={{
-                        color: colors.text,
+                        color: colors.text.primary,
                         fontSize: '0.875rem',
                         fontWeight: 600,
                         mb: 1.5,
@@ -902,7 +918,7 @@ export default function SignInPage({
                             }
                             edge='end'
                             size='small'
-                            sx={{ color: colors.textSecondary }}
+                            sx={{ color: colors.text.secondary }}
                           >
                             {showConfirmNewPassword ? (
                               <VisibilityOff />
@@ -918,7 +934,7 @@ export default function SignInPage({
                             ? 'rgba(255, 255, 255, 0.05)'
                             : 'rgba(255, 255, 255, 0.8)',
                           borderRadius: '12px',
-                          color: colors.text,
+                          color: colors.text.primary,
                           '& fieldset': {
                             borderColor: colors.isDark
                               ? 'rgba(255, 255, 255, 0.1)'
@@ -993,7 +1009,7 @@ export default function SignInPage({
                         background: colors.isDark
                           ? 'rgba(255, 255, 255, 0.1)'
                           : 'rgba(0, 0, 0, 0.1)',
-                        color: colors.textSecondary,
+                        color: colors.text.secondary,
                         boxShadow: 'none',
                       },
                     }}
@@ -1017,7 +1033,7 @@ export default function SignInPage({
                 <Typography
                   variant='h4'
                   sx={{
-                    color: colors.text,
+                    color: colors.text.primary,
                     fontWeight: 700,
                     mb: 1,
                     fontSize: '2rem',
@@ -1026,7 +1042,11 @@ export default function SignInPage({
                   Get Early Access
                 </Typography>
                 <Typography
-                  sx={{ color: colors.textSecondary, mb: 4, fontSize: '1rem' }}
+                  sx={{
+                    color: colors.text.secondary,
+                    mb: 4,
+                    fontSize: '1rem',
+                  }}
                 >
                   Be among the first to experience Workblox
                 </Typography>
@@ -1035,7 +1055,7 @@ export default function SignInPage({
                   <Box sx={{ mb: 3 }}>
                     <Typography
                       sx={{
-                        color: colors.text,
+                        color: colors.text.primary,
                         fontSize: '0.875rem',
                         fontWeight: 600,
                         mb: 1.5,
@@ -1055,7 +1075,7 @@ export default function SignInPage({
                             ? 'rgba(255, 255, 255, 0.05)'
                             : 'rgba(255, 255, 255, 0.8)',
                           borderRadius: '12px',
-                          color: colors.text,
+                          color: colors.text.primary,
                           '& fieldset': {
                             borderColor: colors.isDark
                               ? 'rgba(255, 255, 255, 0.1)'
@@ -1069,7 +1089,7 @@ export default function SignInPage({
                           },
                         },
                         '& .MuiOutlinedInput-input::placeholder': {
-                          color: colors.textSecondary,
+                          color: colors.text.secondary,
                           opacity: 0.6,
                         },
                       }}
@@ -1079,7 +1099,7 @@ export default function SignInPage({
                   <Box sx={{ mb: 4 }}>
                     <Typography
                       sx={{
-                        color: colors.text,
+                        color: colors.text.primary,
                         fontSize: '0.875rem',
                         fontWeight: 600,
                         mb: 1.5,
@@ -1100,7 +1120,7 @@ export default function SignInPage({
                             ? 'rgba(255, 255, 255, 0.05)'
                             : 'rgba(255, 255, 255, 0.8)',
                           borderRadius: '12px',
-                          color: colors.text,
+                          color: colors.text.primary,
                           '& fieldset': {
                             borderColor: colors.isDark
                               ? 'rgba(255, 255, 255, 0.1)'
@@ -1114,7 +1134,7 @@ export default function SignInPage({
                           },
                         },
                         '& .MuiOutlinedInput-input::placeholder': {
-                          color: colors.textSecondary,
+                          color: colors.text.secondary,
                           opacity: 0.6,
                         },
                       }}
@@ -1151,7 +1171,7 @@ export default function SignInPage({
                   <Box sx={{ textAlign: 'center' }}>
                     <Typography
                       sx={{
-                        color: colors.textSecondary,
+                        color: colors.text.secondary,
                         fontSize: '0.9375rem',
                       }}
                     >
@@ -1216,7 +1236,7 @@ export default function SignInPage({
                   <Typography
                     variant='h4'
                     sx={{
-                      color: colors.text,
+                      color: colors.text.primary,
                       fontWeight: 700,
                       mb: 2,
                       fontSize: '2rem',
@@ -1227,7 +1247,7 @@ export default function SignInPage({
 
                   <Typography
                     sx={{
-                      color: colors.textSecondary,
+                      color: colors.text.secondary,
                       mb: 1,
                       fontSize: '1rem',
                       lineHeight: 1.6,
@@ -1237,7 +1257,7 @@ export default function SignInPage({
                   </Typography>
                   <Typography
                     sx={{
-                      color: colors.textSecondary,
+                      color: colors.text.secondary,
                       mb: 4,
                       fontSize: '1rem',
                       lineHeight: 1.6,
@@ -1265,7 +1285,7 @@ export default function SignInPage({
                   >
                     <Typography
                       sx={{
-                        color: colors.text,
+                        color: colors.text.primary,
                         fontSize: '0.875rem',
                         fontWeight: 600,
                         mb: 1,
@@ -1275,7 +1295,7 @@ export default function SignInPage({
                     </Typography>
                     <Typography
                       sx={{
-                        color: colors.textSecondary,
+                        color: colors.text.secondary,
                         fontSize: '0.875rem',
                         lineHeight: 1.6,
                       }}
@@ -1542,7 +1562,7 @@ export default function SignInPage({
             <Box>
               <Typography
                 sx={{
-                  color: colors.text,
+                  color: colors.text.primary,
                   fontWeight: 600,
                   fontSize: '0.875rem',
                   mb: 0.5,
@@ -1551,7 +1571,10 @@ export default function SignInPage({
                 Dashboard
               </Typography>
               <Typography
-                sx={{ color: colors.textSecondary, fontSize: '0.75rem' }}
+                sx={{
+                  color: colors.text.secondary,
+                  fontSize: '0.75rem',
+                }}
               >
                 Real-time insights
               </Typography>
@@ -1617,7 +1640,7 @@ export default function SignInPage({
             <Box>
               <Typography
                 sx={{
-                  color: colors.text,
+                  color: colors.text.primary,
                   fontWeight: 600,
                   fontSize: '0.875rem',
                   mb: 0.5,
@@ -1626,7 +1649,10 @@ export default function SignInPage({
                 Team Chat
               </Typography>
               <Typography
-                sx={{ color: colors.textSecondary, fontSize: '0.75rem' }}
+                sx={{
+                  color: colors.text.secondary,
+                  fontSize: '0.75rem',
+                }}
               >
                 Seamless collaboration
               </Typography>
@@ -1692,7 +1718,7 @@ export default function SignInPage({
             <Box>
               <Typography
                 sx={{
-                  color: colors.text,
+                  color: colors.text.primary,
                   fontWeight: 600,
                   fontSize: '0.875rem',
                   mb: 0.5,
@@ -1701,7 +1727,10 @@ export default function SignInPage({
                 Time Tracking
               </Typography>
               <Typography
-                sx={{ color: colors.textSecondary, fontSize: '0.75rem' }}
+                sx={{
+                  color: colors.text.secondary,
+                  fontSize: '0.75rem',
+                }}
               >
                 Smart automation
               </Typography>
@@ -1767,7 +1796,7 @@ export default function SignInPage({
             <Box>
               <Typography
                 sx={{
-                  color: colors.text,
+                  color: colors.text.primary,
                   fontWeight: 600,
                   fontSize: '0.875rem',
                   mb: 0.5,
@@ -1776,7 +1805,10 @@ export default function SignInPage({
                 Analytics
               </Typography>
               <Typography
-                sx={{ color: colors.textSecondary, fontSize: '0.75rem' }}
+                sx={{
+                  color: colors.text.secondary,
+                  fontSize: '0.75rem',
+                }}
               >
                 Data-driven decisions
               </Typography>
@@ -1842,7 +1874,7 @@ export default function SignInPage({
             <Box>
               <Typography
                 sx={{
-                  color: colors.text,
+                  color: colors.text.primary,
                   fontWeight: 600,
                   fontSize: '0.875rem',
                   mb: 0.5,
@@ -1851,7 +1883,10 @@ export default function SignInPage({
                 Integrations
               </Typography>
               <Typography
-                sx={{ color: colors.textSecondary, fontSize: '0.75rem' }}
+                sx={{
+                  color: colors.text.secondary,
+                  fontSize: '0.75rem',
+                }}
               >
                 Connect everything
               </Typography>
@@ -1917,7 +1952,7 @@ export default function SignInPage({
             <Box>
               <Typography
                 sx={{
-                  color: colors.text,
+                  color: colors.text.primary,
                   fontWeight: 600,
                   fontSize: '0.875rem',
                   mb: 0.5,
@@ -1926,7 +1961,10 @@ export default function SignInPage({
                 Timeline
               </Typography>
               <Typography
-                sx={{ color: colors.textSecondary, fontSize: '0.75rem' }}
+                sx={{
+                  color: colors.text.primarySecondary,
+                  fontSize: '0.75rem',
+                }}
               >
                 Track progress
               </Typography>

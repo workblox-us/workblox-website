@@ -149,7 +149,7 @@ export default function AboutPage() {
                   sx={{
                     fontSize: { xs: '2.5rem', md: '3.5rem' },
                     fontWeight: 700,
-                    color: colors.text,
+                    color: colors.text.primary,
                     mb: 2,
                   }}
                 >
@@ -159,7 +159,7 @@ export default function AboutPage() {
                   variant='h6'
                   sx={{
                     fontSize: { xs: '1.125rem', md: '1.25rem' },
-                    color: colors.textSecondary,
+                    color: colors.text.secondary,
                     maxWidth: '48rem',
                     mx: 'auto',
                     lineHeight: 1.7,
@@ -194,13 +194,17 @@ export default function AboutPage() {
                   <Box sx={{ textAlign: 'center' }}>
                     <Typography
                       variant='h3'
-                      sx={{ fontWeight: 700, color: colors.text, mb: 0.5 }}
+                      sx={{
+                        fontWeight: 700,
+                        color: colors.text.primary,
+                        mb: 0.5,
+                      }}
                     >
                       {stat.value}
                     </Typography>
                     <Typography
                       variant='body2'
-                      sx={{ color: colors.textSecondary }}
+                      sx={{ color: colors.text.secondary }}
                     >
                       {stat.label}
                     </Typography>
@@ -224,7 +228,7 @@ export default function AboutPage() {
                 variant='h2'
                 sx={{
                   fontWeight: 700,
-                  color: colors.text,
+                  color: colors.text.primary,
                   mb: 3,
                   textAlign: 'center',
                 }}
@@ -235,7 +239,7 @@ export default function AboutPage() {
                 variant='body1'
                 sx={{
                   fontSize: '1.125rem',
-                  color: colors.textSecondary,
+                  color: colors.text.secondary,
                   lineHeight: 1.8,
                   mb: 3,
                 }}
@@ -249,7 +253,7 @@ export default function AboutPage() {
                 variant='body1'
                 sx={{
                   fontSize: '1.125rem',
-                  color: colors.textSecondary,
+                  color: colors.text.secondary,
                   lineHeight: 1.8,
                 }}
               >
@@ -267,7 +271,7 @@ export default function AboutPage() {
               variant='h2'
               sx={{
                 fontWeight: 700,
-                color: colors.text,
+                color: colors.text.primary,
                 mb: 5,
                 textAlign: 'center',
               }}
@@ -318,13 +322,17 @@ export default function AboutPage() {
                         />
                         <Typography
                           variant='h5'
-                          sx={{ fontWeight: 600, color: colors.text, mb: 1.5 }}
+                          sx={{
+                            fontWeight: 600,
+                            color: colors.text.primary,
+                            mb: 1.5,
+                          }}
                         >
                           {value.title}
                         </Typography>
                         <Typography
                           variant='body2'
-                          sx={{ color: colors.textSecondary, lineHeight: 1.7 }}
+                          sx={{ color: colors.text.secondary, lineHeight: 1.7 }}
                         >
                           {value.description}
                         </Typography>
@@ -342,7 +350,7 @@ export default function AboutPage() {
               variant='h3'
               sx={{
                 fontWeight: 700,
-                color: colors.text,
+                color: colors.text.primary,
                 mb: { xs: 4, sm: 5 },
                 textAlign: 'center',
                 fontSize: { xs: '1.75rem', sm: '2rem', md: '2.5rem' },
@@ -444,7 +452,7 @@ export default function AboutPage() {
                         variant='h6'
                         sx={{
                           fontWeight: 600,
-                          color: colors.text,
+                          color: colors.text.primary,
                           mb: { xs: 0.75, md: 1 },
                           fontSize: {
                             xs: '1rem',
@@ -459,7 +467,7 @@ export default function AboutPage() {
                       <Typography
                         variant='body2'
                         sx={{
-                          color: colors.textSecondary,
+                          color: colors.text.secondary,
                           lineHeight: { xs: 1.5, md: 1.6 },
                           fontSize: {
                             xs: '0.875rem',
@@ -498,14 +506,14 @@ export default function AboutPage() {
             <TrendingUp sx={{ fontSize: '3rem', color: '#9333ea', mb: 2 }} />
             <Typography
               variant='h4'
-              sx={{ fontWeight: 700, color: colors.text, mb: 2 }}
+              sx={{ fontWeight: 700, color: colors.text.primary, mb: 2 }}
             >
               Join Us on This Journey
             </Typography>
             <Typography
               variant='body1'
               sx={{
-                color: colors.textSecondary,
+                color: colors.text.secondary,
                 maxWidth: '40rem',
                 mx: 'auto',
                 mb: 3,
@@ -517,7 +525,7 @@ export default function AboutPage() {
             </Typography>
             <Typography
               variant='body2'
-              sx={{ color: colors.textSecondary, fontSize: '0.875rem' }}
+              sx={{ color: colors.text.secondary, fontSize: '0.875rem' }}
             >
               💼 We'll be hiring soon. Interested? Email{' '}
               <a

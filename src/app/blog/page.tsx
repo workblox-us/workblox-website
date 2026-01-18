@@ -500,14 +500,14 @@ export default function BlogPage() {
           >
             <Typography
               variant='h6'
-              sx={{ fontWeight: 600, color: colors.text, mb: 1.5 }}
+              sx={{ fontWeight: 600, color: colors.text.primary, mb: 1.5 }}
             >
               Stay Updated
             </Typography>
             <Typography
               variant='body2'
               sx={{
-                color: colors.textSecondary,
+                color: colors.text.secondary,
                 maxWidth: '40rem',
                 mx: 'auto',
                 mb: 2,
@@ -542,7 +542,7 @@ export default function BlogPage() {
           <Box sx={{ textAlign: 'center', mt: 6 }}>
             <Typography
               variant='body2'
-              sx={{ color: colors.textSecondary, fontSize: '0.875rem' }}
+              sx={{ color: colors.text.secondary, fontSize: '0.875rem' }}
             >
               📝 Blog posts are currently in preview. Full content coming with
               beta launch.
