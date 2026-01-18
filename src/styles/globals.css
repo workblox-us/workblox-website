@@ -129,6 +129,13 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+
+  /* Performance optimizations */
+  img,
+  video,
+  iframe {
+    content-visibility: auto;
+  }
 }
 
 /**

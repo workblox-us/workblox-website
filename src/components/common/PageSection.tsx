@@ -3,7 +3,7 @@ import { useThemeColors } from '@/hooks/useThemeColors';
 import { tokens } from '@/utils/design-tokens';
 import { ReactNode } from 'react';
 
-interface PageSectionProps extends Omit<BoxProps, 'children'> {
+interface PageSectionProps extends Omit<BoxProps, 'children' | 'maxWidth'> {
   children: ReactNode;
   maxWidth?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | false;
   background?: 'primary' | 'secondary' | 'transparent';

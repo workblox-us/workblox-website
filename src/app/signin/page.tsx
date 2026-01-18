@@ -1962,7 +1962,7 @@ export default function SignInPage({
               </Typography>
               <Typography
                 sx={{
-                  color: colors.text.primarySecondary,
+                  color: colors.text.secondary,
                   fontSize: '0.75rem',
                 }}
               >
