@@ -1,7 +1,8 @@
-import { useState, useRef, useEffect } from 'react';
-import { Box, Typography, IconButton } from '@mui/material';
-import { motion, AnimatePresence } from 'motion/react';
-import { Close, PlayArrow, Pause } from '@mui/icons-material';
+import { Close, Pause, PlayArrow } from '@mui/icons-material';
+import { Box, IconButton, Typography } from '@mui/material';
+import { AnimatePresence, motion } from 'motion/react';
+import { useEffect, useRef, useState } from 'react';
+
 import { useThemeColors } from '../hooks/useThemeColors';
 
 interface VideoPreviewModalProps {
@@ -110,8 +111,8 @@ export function VideoPreviewModal({ open, onClose }: VideoPreviewModalProps) {
                   background: colors.isDark
                     ? 'linear-gradient(135deg, rgba(30, 27, 75, 0.9) 0%, rgba(15, 15, 35, 0.9) 100%)'
                     : 'linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 248, 252, 0.95) 100%)',
-                  border: colors.isDark 
-                    ? '1px solid rgba(139, 92, 246, 0.2)' 
+                  border: colors.isDark
+                    ? '1px solid rgba(139, 92, 246, 0.2)'
                     : '1px solid rgba(139, 92, 246, 0.15)',
                   backdropFilter: 'blur(40px)',
                   boxShadow: colors.isDark
@@ -140,7 +141,8 @@ export function VideoPreviewModal({ open, onClose }: VideoPreviewModalProps) {
                     transform: 'translateX(-50%)',
                     width: '80%',
                     height: '300px',
-                    background: 'radial-gradient(ellipse at center, rgba(139, 92, 246, 0.3), transparent 70%)',
+                    background:
+                      'radial-gradient(ellipse at center, rgba(139, 92, 246, 0.3), transparent 70%)',
                     pointerEvents: 'none',
                   }}
                 />
@@ -156,7 +158,7 @@ export function VideoPreviewModal({ open, onClose }: VideoPreviewModalProps) {
                   }}
                 >
                   <Typography
-                    variant="h5"
+                    variant='h5'
                     sx={{
                       fontSize: { xs: '1.125rem', sm: '1.25rem' },
                       fontWeight: 600,
@@ -173,7 +175,9 @@ export function VideoPreviewModal({ open, onClose }: VideoPreviewModalProps) {
                       transition: 'all 0.2s ease',
                       '&:hover': {
                         color: colors.text.primary,
-                        bgcolor: colors.isDark ? 'rgba(255, 255, 255, 0.05)' : 'rgba(0, 0, 0, 0.05)',
+                        bgcolor: colors.isDark
+                          ? 'rgba(255, 255, 255, 0.05)'
+                          : 'rgba(0, 0, 0, 0.05)',
                         transform: 'rotate(90deg)',
                       },
                     }}
@@ -192,7 +196,9 @@ export function VideoPreviewModal({ open, onClose }: VideoPreviewModalProps) {
                     paddingBottom: '56.25%', // 16:9 aspect ratio
                     borderRadius: '16px',
                     overflow: 'hidden',
-                    bgcolor: colors.isDark ? 'rgba(0, 0, 0, 0.4)' : 'rgba(0, 0, 0, 0.05)',
+                    bgcolor: colors.isDark
+                      ? 'rgba(0, 0, 0, 0.4)'
+                      : 'rgba(0, 0, 0, 0.05)',
                     boxShadow: colors.isDark
                       ? '0 20px 60px rgba(0, 0, 0, 0.6), 0 0 40px rgba(139, 92, 246, 0.2)'
                       : '0 20px 60px rgba(0, 0, 0, 0.15), 0 0 40px rgba(139, 92, 246, 0.1)',
@@ -211,7 +217,8 @@ export function VideoPreviewModal({ open, onClose }: VideoPreviewModalProps) {
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
-                        background: 'linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #1e3a8a 100%)',
+                        background:
+                          'linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #1e3a8a 100%)',
                         overflow: 'hidden',
                       }}
                     >
@@ -230,18 +237,20 @@ export function VideoPreviewModal({ open, onClose }: VideoPreviewModalProps) {
                         sx={{
                           position: 'absolute',
                           inset: 0,
-                          background: 'radial-gradient(circle at 30% 50%, rgba(147, 51, 234, 0.4), transparent 60%), radial-gradient(circle at 70% 50%, rgba(59, 130, 246, 0.3), transparent 60%)',
+                          background:
+                            'radial-gradient(circle at 30% 50%, rgba(147, 51, 234, 0.4), transparent 60%), radial-gradient(circle at 70% 50%, rgba(59, 130, 246, 0.3), transparent 60%)',
                         }}
                       />
 
                       {/* Workblox Logo Text */}
                       <Box sx={{ position: 'relative', textAlign: 'center' }}>
                         <Typography
-                          variant="h2"
+                          variant='h2'
                           sx={{
                             fontSize: { xs: '2.5rem', sm: '4rem' },
                             fontWeight: 700,
-                            background: 'linear-gradient(90deg, #c084fc 0%, #60a5fa 50%, #22d3ee 100%)',
+                            background:
+                              'linear-gradient(90deg, #c084fc 0%, #60a5fa 50%, #22d3ee 100%)',
                             WebkitBackgroundClip: 'text',
                             WebkitTextFillColor: 'transparent',
                             letterSpacing: '-0.02em',
@@ -251,7 +260,7 @@ export function VideoPreviewModal({ open, onClose }: VideoPreviewModalProps) {
                           Workblox
                         </Typography>
                         <Typography
-                          variant="body1"
+                          variant='body1'
                           sx={{
                             color: 'rgba(255, 255, 255, 0.6)',
                             fontSize: '0.875rem',
@@ -279,7 +288,7 @@ export function VideoPreviewModal({ open, onClose }: VideoPreviewModalProps) {
                     onClick={togglePlay}
                   >
                     {/* Replace with your actual video source */}
-                    <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4" />
+                    <source src='/preview.webm' type='video/webm' />
                     Your browser does not support the video tag.
                   </video>
 
@@ -298,8 +307,8 @@ export function VideoPreviewModal({ open, onClose }: VideoPreviewModalProps) {
                           display: 'flex',
                           alignItems: 'center',
                           justifyContent: 'center',
-                          background: isPlaying 
-                            ? 'transparent' 
+                          background: isPlaying
+                            ? 'transparent'
                             : 'linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.3))',
                           cursor: 'pointer',
                         }}
@@ -309,14 +318,18 @@ export function VideoPreviewModal({ open, onClose }: VideoPreviewModalProps) {
                           component={motion.div}
                           whileHover={{ scale: 1.1 }}
                           whileTap={{ scale: 0.95 }}
-                          animate={!isPlaying ? {
-                            scale: [1, 1.05, 1],
-                            boxShadow: [
-                              '0 0 40px rgba(139, 92, 246, 0.4)',
-                              '0 0 60px rgba(139, 92, 246, 0.6)',
-                              '0 0 40px rgba(139, 92, 246, 0.4)',
-                            ],
-                          } : {}}
+                          animate={
+                            !isPlaying
+                              ? {
+                                  scale: [1, 1.05, 1],
+                                  boxShadow: [
+                                    '0 0 40px rgba(139, 92, 246, 0.4)',
+                                    '0 0 60px rgba(139, 92, 246, 0.6)',
+                                    '0 0 40px rgba(139, 92, 246, 0.4)',
+                                  ],
+                                }
+                              : {}
+                          }
                           transition={{
                             duration: 2,
                             repeat: Infinity,
@@ -326,7 +339,8 @@ export function VideoPreviewModal({ open, onClose }: VideoPreviewModalProps) {
                             width: { xs: '80px', sm: '100px' },
                             height: { xs: '80px', sm: '100px' },
                             borderRadius: '50%',
-                            background: 'linear-gradient(135deg, rgba(147, 51, 234, 0.9), rgba(59, 130, 246, 0.9))',
+                            background:
+                              'linear-gradient(135deg, rgba(147, 51, 234, 0.9), rgba(59, 130, 246, 0.9))',
                             display: 'flex',
                             alignItems: 'center',
                             justifyContent: 'center',
@@ -338,9 +352,20 @@ export function VideoPreviewModal({ open, onClose }: VideoPreviewModalProps) {
                           }}
                         >
                           {isPlaying ? (
-                            <Pause sx={{ fontSize: { xs: '2.5rem', sm: '3rem' }, color: 'white' }} />
+                            <Pause
+                              sx={{
+                                fontSize: { xs: '2.5rem', sm: '3rem' },
+                                color: 'white',
+                              }}
+                            />
                           ) : (
-                            <PlayArrow sx={{ fontSize: { xs: '2.5rem', sm: '3rem' }, color: 'white', ml: 0.5 }} />
+                            <PlayArrow
+                              sx={{
+                                fontSize: { xs: '2.5rem', sm: '3rem' },
+                                color: 'white',
+                                ml: 0.5,
+                              }}
+                            />
                           )}
                         </Box>
                       </Box>
@@ -349,9 +374,11 @@ export function VideoPreviewModal({ open, onClose }: VideoPreviewModalProps) {
                 </Box>
 
                 {/* Supporting Copy */}
-                <Box sx={{ textAlign: 'center', maxWidth: '600px', mx: 'auto' }}>
+                <Box
+                  sx={{ textAlign: 'center', maxWidth: '600px', mx: 'auto' }}
+                >
                   <Typography
-                    variant="h6"
+                    variant='h6'
                     sx={{
                       fontSize: { xs: '1.125rem', sm: '1.25rem' },
                       fontWeight: 600,
@@ -363,14 +390,15 @@ export function VideoPreviewModal({ open, onClose }: VideoPreviewModalProps) {
                     One workspace. Everything connected.
                   </Typography>
                   <Typography
-                    variant="body1"
+                    variant='body1'
                     sx={{
                       color: colors.text.secondary,
                       fontSize: { xs: '0.875rem', sm: '0.9375rem' },
                       lineHeight: 1.7,
                     }}
                   >
-                    See how Workblox unifies planning, communication, and execution across your entire team.
+                    See how Workblox unifies planning, communication, and
+                    execution across your entire team.
                   </Typography>
                 </Box>
               </Box>
