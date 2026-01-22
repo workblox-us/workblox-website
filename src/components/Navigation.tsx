@@ -85,9 +85,7 @@ export function Navigation() {
               <Box
                 component='img'
                 src={
-                  colors.isDark
-                    ? '/images/workblox-logo.png'
-                    : '/images/workblox-logo-light.png'
+                  colors.isDark ? '/images/logo_white.svg' : '/images/logo.svg'
                 }
                 alt='Workblox'
                 sx={{

@@ -11,11 +11,7 @@ export function WorkbloxLogo({ size = 28 }: WorkbloxLogoProps) {
   return (
     <Box
       component='img'
-      src={
-        colors.isDark
-          ? '/images/workblox-logo.png'
-          : '/images/workblox-logo-light.png'
-      }
+      src={colors.isDark ? '/images/logo_white.svg' : '/images/logo.svg'}
       alt='Workblox'
       sx={{
         height: size, // adjust

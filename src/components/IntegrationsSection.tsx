@@ -2,7 +2,7 @@ import { TrendingUp } from '@mui/icons-material';
 import { Box, Button, Container, Typography } from '@mui/material';
 import { motion } from 'motion/react';
 import { useState } from 'react';
-
+import Link from 'next/link';
 import { useNavigation } from '../contexts/NavigationContext';
 import { useThemeColors } from '../hooks/useThemeColors';
 
@@ -61,8 +61,8 @@ export function IntegrationsSection() {
     {
       name: 'Mailchimp',
       logo: 'https://cdn.worldvectorlogo.com/logos/mailchimp-freddie-icon.svg',
-      x: 38,
-      y: 27,
+      x: 34,
+      y: 28,
     },
     {
       name: 'Trello',
@@ -362,16 +362,14 @@ export function IntegrationsSection() {
                 alignItems: 'center',
                 justifyContent: 'center',
                 zIndex: 30,
+                padding: 5,
               }}
             >
-              <TrendingUp
-                sx={{
-                  fontSize: { xs: '3rem', md: '4rem' },
-                  color: colors.isDark ? '#ffffff' : '#6366f1',
-                  filter: colors.isDark
-                    ? 'drop-shadow(0 0 10px rgba(255, 255, 255, 0.5))'
-                    : 'drop-shadow(0 0 8px rgba(99, 102, 241, 0.3))',
-                }}
+              <Box
+                component={'img'}
+                alt='Workblox Logo'
+                src='/images/icon.svg'
+                sx={{ width: '100%', height: '100%' }}
               />
             </Box>
 
@@ -523,6 +521,8 @@ export function IntegrationsSection() {
           {/* CTA Button */}
           <Button
             variant='contained'
+            component={Link}
+            href='/integrations'
             sx={{
               mt: 4,
               px: 4,
@@ -541,7 +541,6 @@ export function IntegrationsSection() {
                 transform: 'translateY(-2px)',
               },
             }}
-            onClick={() => navigateTo('integrations')}
           >
             Explore all integrations
           </Button>

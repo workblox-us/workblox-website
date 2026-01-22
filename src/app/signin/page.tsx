@@ -251,7 +251,7 @@ export default function SignInPage({
         >
           {/* Logo */}
           <Box sx={{ display: 'flex', justifyContent: 'center', mb: 4 }}>
-            <Box sx={{ width: 48, height: 48 }}>
+            <Box sx={{ height: 48 }}>
               <WorkbloxLogo />
             </Box>
           </Box>
