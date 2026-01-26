@@ -21,22 +21,22 @@ interface BetaModalProps {
   onClose: () => void;
 }
 const mailchimpKey =
-  'https://workblox.us14.list-manage.com/subscribe/post?u=27f7d507fd7e1adf25f3c61d8&amp;id=74007830e2&amp;f_id=00caa1e0f0';
+  'https://workblox.us10.list-manage.com/subscribe/post?u=b8163170f1ff79ffb74ebeb99&amp;id=458262d21c&amp;f_id=0024e1e3f0';
 const surveyData = {
   features: {
     analytics: false,
     embedded_surveys: false,
     add_html_select_element_feature_to_surveys: false,
   },
-  userId: '27f7d507fd7e1adf25f3c61d8',
-  surveyId: '0d9c63ad1b',
+  userId: 'b8163170f1ff79ffb74ebeb99',
+  surveyId: 'b833a1368b',
   emailId: '*|UNIQID|*',
   attribution: true,
   surveyData: {
-    id: 2292,
-    listId: 506915,
+    id: 2856,
+    listId: 855001,
     hostedUrl:
-      'https://us14.list-manage.com/survey?u=27f7d507fd7e1adf25f3c61d8&id=0d9c63ad1b',
+      'https://us10.list-manage.com/survey?u=b8163170f1ff79ffb74ebeb99&id=b833a1368b',
     hostedStatus: 'on',
     hostedStyles: {
       assetUrl: '',
@@ -56,12 +56,12 @@ const surveyData = {
     },
     sections: [
       {
-        id: 11098,
+        id: 180,
         type: 'question',
         text: null,
         options: {
-          question_id: 10584,
-          origin_id: 'lyrag',
+          question_id: 9048,
+          origin_id: 'yo00h',
           sub_type: null,
           video_id: null,
           video_type: null,
@@ -69,7 +69,7 @@ const surveyData = {
           image_alt_text: null,
         },
         question: {
-          id: 10584,
+          id: 9048,
           response: 'pickMany',
           inquiry: '<p>What are your biggest pain points now?</p>',
           isRequired: false,
@@ -77,35 +77,35 @@ const surveyData = {
             options: [
               {
                 label: 'Too many tools',
-                value: '1bbgm',
+                value: '7n7eg',
               },
               {
                 label: 'Context switching',
-                value: '97b0s',
+                value: 'dexqc',
               },
               {
                 label: 'Missing updates',
-                value: 'suvpq',
+                value: '5dt3s',
               },
               {
                 label: 'Manual tracking',
-                value: 'bwi3q',
+                value: 'uaja2',
               },
               {
                 label: 'Unclear priorities',
-                value: 'kmfbd',
+                value: '33lik',
               },
               {
                 label: 'Team alignment',
-                value: 'dfhqe',
+                value: 'e14xz',
               },
               {
                 label: 'Progress visibility',
-                value: '7prtm',
+                value: 'v7x9u',
               },
               {
                 label: 'Time management',
-                value: 'pl88l',
+                value: 'bf0ys',
               },
             ],
             hasOther: true,
@@ -123,12 +123,12 @@ const surveyData = {
         },
       },
       {
-        id: 11099,
+        id: 181,
         type: 'question',
         text: null,
         options: {
-          question_id: 10585,
-          origin_id: 'xdq2n',
+          question_id: 9049,
+          origin_id: 'kzng3',
           sub_type: null,
           video_id: null,
           video_type: null,
@@ -136,7 +136,7 @@ const surveyData = {
           image_alt_text: null,
         },
         question: {
-          id: 10585,
+          id: 9049,
           response: 'pickMany',
           inquiry: '<p>How do you plan to use Workblox?</p>',
           isRequired: false,
@@ -144,39 +144,39 @@ const surveyData = {
             options: [
               {
                 label: 'Project management',
-                value: '2ojje',
+                value: 'qmc78',
               },
               {
                 label: 'Team collaboration',
-                value: 'b4602',
+                value: '6aoic',
               },
               {
                 label: 'Client projects',
-                value: '6as9g',
+                value: 'rr94c',
               },
               {
                 label: 'Recurring processes',
-                value: 'm0284',
+                value: 'x1gjw',
               },
               {
                 label: 'Product launches',
-                value: '1lo19',
+                value: 'ibtxy',
               },
               {
                 label: 'Sprint planning',
-                value: '1ls20',
+                value: 'tbvtx',
               },
               {
                 label: 'Daily standups',
-                value: 'abf4y',
+                value: '790c8',
               },
               {
                 label: 'Remote work',
-                value: 'ast59',
+                value: 'erngo',
               },
               {
                 label: 'Agency workflow',
-                value: 'm4514',
+                value: 'iygkz',
               },
             ],
             hasOther: true,
@@ -198,18 +198,7 @@ const surveyData = {
   openTracking: 'https://admin.mailchimp.com/lists/surveys/track/open',
   completeTracking: 'https://admin.mailchimp.com/lists/surveys/track/complete',
 };
-const surveyPostUrlExample =
-  'https://us14.list-manage.com/survey/respond?u=27f7d507fd7e1adf25f3c61d8&id=0d9c63ad1b&e=*%7CUNIQID%7C*&attribution=true';
-const surveyPostExample = {
-  questions: {
-    '10584': {
-      answer: { keys: ['1bbgm', 'kmfbd', 'other'], freeform: 'bbbbb' },
-    },
-    '10585': {
-      answer: { keys: ['1ls20', '1lo19', 'other'], freeform: 'cccc' },
-    },
-  },
-};
+
 interface FormInputs {
   FNAME: string;
   EMAIL: string;
