@@ -77,7 +77,7 @@ export function Hero() {
           position: 'absolute',
           inset: 0,
           overflow: 'hidden',
-          opacity: isDark ? 0.15 : 0.25,
+          opacity: isDark ? 0.8 : 0.25,
           pointerEvents: 'none',
         }}
       >
